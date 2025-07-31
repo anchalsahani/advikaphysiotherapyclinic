@@ -531,9 +531,10 @@ section {
   .nav-links {
     flex-direction: row;   /* stack links vertically */
     align-items: flex-start;
-    width: 100%;
+    width: 80%;
     gap: 12px;
-    padding: 10px 0;
+    padding: 10px 0px;
+    padding-right: 50%;
   }
 
   .navbar {
@@ -550,6 +551,7 @@ section {
 
   .hero-content {
     padding-top: 50%;
+    padding-left: 5%;
     max-width: 90%;
   }
 }
