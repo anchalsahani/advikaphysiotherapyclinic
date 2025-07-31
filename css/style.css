@@ -549,6 +549,7 @@ section {
   }
 
   .hero-content {
+    padding-top: 50%;
     max-width: 90%;
   }
 }
