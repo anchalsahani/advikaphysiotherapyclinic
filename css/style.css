@@ -497,7 +497,7 @@ section {
 /* Mobile */
 @media (max-width: 768px) {
   .nav-links {
-    flex-direction: column;   /* stack links vertically */
+    flex-direction: row;   /* stack links vertically */
     align-items: flex-start;
     width: 100%;
     gap: 12px;
