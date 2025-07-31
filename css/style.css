@@ -43,12 +43,15 @@ header {
 .nav-links {
   list-style: none;
   display: flex;
-  flex-grow: 1;
   gap: 24px;
   margin: 0;
-  padding-left: 22rem;
-  min-width: 0;
+  padding: 0;     
+  padding-right: 10rem;            /* remove big left padding */
+  flex-grow: 0;               /* don’t stretch unnaturally */
+  justify-content: flex-end;  /* align right next to logo */
 }
+
+
 .nav-links li a {
   text-decoration: none;
   color: #fff;
@@ -481,5 +484,29 @@ section {
     font-size: 0.7rem;
     padding: 5px;
     padding: 0 10px;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) {
+  .nav-links {
+    justify-content: center;  /* center the links */
+    flex-wrap: wrap;          /* allow wrapping */
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;   /* stack links vertically */
+    align-items: flex-start;
+    width: 100%;
+    gap: 12px;
+    padding: 10px 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 }
