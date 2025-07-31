@@ -10,7 +10,7 @@ header {
   background: #153c33;
   color: #fff;
   position: relative;
-  border-bottom: 2px solid #333;
+  border-bottom: 1px solid #b3e0ff;
 }
 
 .navbar {
@@ -70,23 +70,54 @@ header {
   color: #b3e0ff;
 }
 .hero {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 46px 10vw;
-  gap: 40px;
-  flex-wrap: wrap;
+  justify-content: center;   /* center text horizontally */
+  text-align: center;        /* center text content */
+  padding: 80px 10vw;
+  min-height: 100vh;         /* full screen */
+  overflow: hidden;
+
+  /* Full background image */
+background: url("../images/1.webp") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed; /* optional, parallax-like effect on desktop */
 }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* overlay for readability */
+  z-index: 1;
+}
+
 .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  color: white;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
   flex: 1;
+  color: white;
+  max-width: 600px;
 }
 .hero-content h1 {
   font-size: 2.5rem;
+  font-weight: bolder;
   margin: 0 0 18px;
+  color: #0e3a32;
 }
 .hero-content p {
   font-size: 1.25em;
-  margin-bottom: 25px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  color: #003a32;
 }
 .cta-btn {
   display: inline-block;
@@ -103,12 +134,13 @@ header {
   background: #35615b;
   color: #fff;
 }
-.hero-img {
-  width: 350px;
-  max-width: 90vw;
-  border-radius: 6px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
-  object-fit: cover;
+.hero::after {
+  /* dark overlay for readability */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
 }
 main {
   padding: 42px 10vw;
@@ -510,3 +542,33 @@ section {
     gap: 12px;
   }
 }
+@media (max-width: 900px) {
+  .hero {
+    padding: 60px 6vw;
+    background-attachment: scroll; /* avoid glitch on mobile */
+  }
+
+  .hero-content {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero {
+    min-height: 100vh;
+    padding: 40px 5vw;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .cta-btn {
+    margin-top: 20px;
+  }
+}
+
