@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+body {
+  margin: 0;
+  padding-top: 72px; /* <-- reserve space equal to navbar height */
+  font-family: "Libertinus Sans", sans-serif;
+  background: #f9f9fc;
+  color: #222;
+}
+header {
+  background: #153c33;
+  color: #fff;
+  position: relative;
+  border-bottom: 2px solid #333;
+}
+
+.navbar {
+  background: #153c33;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 10vw;
+  border-bottom: 1px solid #b3e0ff;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1.1;
+  display: flex;
+}
+.logo span {
+  font-size: 1.8rem;
+  padding-top: 4px;
+  padding-left: 0.8rem;
+  color: #b3e0ff;
+  letter-spacing: 1px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-grow: 1;
+  gap: 24px;
+  margin: 0;
+  padding-left: 22rem;
+  min-width: 0;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  min-width: 0;
+  transition: color 0.2s;
+  border-bottom: 3px solid transparent;
+}
+.nav-links li a:hover {
+  color: #b3e0ff;
+  min-width: 0;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  border-bottom: 2px solid #1c6d62 ;
+  color: #b3e0ff;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 46px 10vw;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.hero-content {
+  flex: 1;
+}
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin: 0 0 18px;
+}
+.hero-content p {
+  font-size: 1.25em;
+  margin-bottom: 25px;
+}
+.cta-btn {
+  display: inline-block;
+  background: #b3e0ff;
+  color: #003a32;
+  font-weight: bold;
+  padding: 12px 28px;
+  border-radius: 26px;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background 0.2s;
+}
+.cta-btn:hover {
+  background: #35615b;
+  color: #fff;
+}
+.hero-img {
+  width: 350px;
+  max-width: 90vw;
+  border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  object-fit: cover;
+}
+main {
+  padding: 42px 10vw;
+}
+.about, .services, .team, .contact {
+  margin-bottom: 52px;
+}
+.about h2, .services h2, .team h2, .contact h2 {
+  font-size: 2em;
+  margin-bottom: 0.7em;
+}
+.services {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 50px 10%;
+  gap: 50px;
+  text-align: left;
+  background: #0e3b32;
+  border-radius: 4px;
+}
+
+.service-card {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  padding-right: 20px;
+}
+
+.service-card:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding-left: 0;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.service-text h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffd166;
+}
+
+.service-text p {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #d1d5db;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .services {
+    flex-direction: column;
+    padding: 40px 5%;
+  }
+  .service-card {
+    border-right: none;
+    padding: 20px 0;
+  }
+}
+#offerings {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 10%;
+  background:#0e3b32;
+  border-radius: 2px;
+  color: #003a32;
+}
+
+#offerings .card {
+  flex: 1;
+  background: #eaf3f1;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+#offerings .card h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#offerings .card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#offerings .card li {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#offerings .icon {
+  background: #004436;
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #offerings {
+    flex-direction: column;
+    padding: 30px 5%;
+  }
+}
+
+.team-list {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  background: #003a32;
+  border-radius: 8px;
+  padding: 40px 10%;
+}
+.member {
+  text-align: center;
+  flex: 1 1 180px;
+  color: antiquewhite;
+}
+.member img {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  object-fit: cover;
+  border: 3px solid #ffd166;
+}
+.contact form {
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+  gap: 12px;
+}
+.contact input, .contact textarea {
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  resize: none;
+}
+.contact textarea {
+  min-height: 68px;
+}
+.contact button {
+  background: #003a32;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 11px 0;
+  font-size: 1.08em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.15s;
+}
+.contact button:hover {
+  background: #1c6d62;
+}
+#formStatus {
+  margin-left: 8px;
+  color: #0b9444;
+}
+.contact-info {
+  margin-top: 26px;
+}
+footer {
+  background:#003a32;
+  color: #b3e0ff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+}
+@media (max-width: 900px) {
+  .navbar, .hero, main {
+    padding: 18px 5vw;
+  }
+  .service-cards, .team-list {
+    flex-direction: column;
+  }
+  .hero {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .hero-img {
+    align-self: center;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+section {
+  scroll-margin-top: 80px; /* adjust based on navbar height */
+}
+/* Scroll reveal animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Base (Desktop-first styles you already have) */
+
+/* ----------- Tablets (max-width: 1024px) ----------- */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 16px 6vw;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .hero-img {
+    width: 280px;
+  }
+
+  .services {
+    gap: 30px;
+    padding: 40px 8%;
+  }
+
+  #offerings {
+    gap: 24px;
+    padding: 40px 8%;
+  }
+}
+
+/* ----------- Mobile Landscape (max-width: 768px) ----------- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .cta-btn {
+    padding: 10px 22px;
+    font-size: 1rem;
+  }
+
+  .hero-img {
+    width: 240px;
+  }
+
+  .services {
+    flex-direction: column;
+    padding: 28px 6%;
+  }
+
+  #offerings {
+    flex-direction: column;
+    padding: 28px 6%;
+  }
+
+  .team-list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .member img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .contact form {
+    width: 100%;
+  }
+}
+
+/* ----------- Mobile Portrait / Small devices (max-width: 480px) ----------- */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .logo span {
+    font-size: 1.2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .hero-img {
+    width: 200px;
+  }
+
+  .service-text h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-text p {
+    font-size: 0.85rem;
+  }
+
+  #offerings .card {
+    padding: 20px;
+  }
+
+  #offerings .card h2 {
+    font-size: 1.2rem;
+  }
+
+  #offerings .card li {
+    font-size: 0.9rem;
+  }
+
+  footer {
+    font-size: 0.7rem;
+    padding: 5px;
+    padding: 0 10px;
+  }
+}
