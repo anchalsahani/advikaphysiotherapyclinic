@@ -225,88 +225,73 @@ body {
 }
 
 main {
-  padding: 42px 10vw;
+  padding: 45px 10vw;
 }
-.about, .services, .team, .contact {
+.about, .offerings, .team, .contact {
   margin-bottom: 52px;
+  padding-top: 30px;
 }
 .about h2, .services h2, .team h2, .contact h2 {
-  font-size: 2em;
+  font-size: 3em;
+  font-weight: lighter;
   margin-bottom: 0.7em;
+  text-align: center;
+  color: var(--theme-color-inverse_light);
 }
 .services {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  padding: 50px 10%;
-  gap: 50px;
+  padding: 50px 15%;
+  gap: 30px;
   text-align: left;
-  background: var(--theme-color-inverse_text);
   border-radius: 4px;
 }
 
+.services {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;         /* hide scrollbars for slideshow */
+  padding: 40px 5%;
+  position: relative;
+}
+
 .service-card {
-  flex: 1;
+  flex: 0 0 260px;          /* fixed card width */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  border-radius: 15px;
+  padding: 20px;
   display: flex;
-  gap: 8px;
+  gap: 12px;
   align-items: flex-start;
-  border-right: 1px solid rgba(255,255,255,0.2);
-  padding-right: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.service-card:hover {
+  transform: scale(1.05);
 }
 
-.service-card:last-child {
-  border-right: none;
-  padding-right: 0;
-}
-
-.icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  padding-left: 0;
-  font-size: 24px;
-  flex-shrink: 0;
-}
-
-.service-text h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffd166;
-}
-
-.service-text p {
-  margin: 5px 0 0;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: #d1d5db;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .services {
-    flex-direction: column;
-    padding: 40px 5%;
-  }
-  .service-card {
-    border-right: none;
-    padding: 20px 0;
-  }
-}
 #offerings {
-  display: flex;
   justify-content: center;
   gap: 40px;
   padding: 60px 10%;
-  background: var(--theme-color-inverse_text);
   border-radius: 2px;
   color: #003a32;
 }
-
+#offerings h2 {
+  font-size: 3em;
+  font-weight: lighter;
+  margin-bottom: 0.7em;
+  text-align: center;
+  color: var(--theme-color-inverse_light);
+}
+#offerings .service-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
 #offerings .card {
   flex: 1;
   background: #eaf3f1;

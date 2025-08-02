@@ -68,3 +68,23 @@ window.addEventListener("scroll", function () {
     navbar.classList.remove("scrolled");
   }
 });
+const services = document.querySelector(".services");
+
+  let scrollAmount = 0;
+  const slideSpeed = 2; // px per frame
+  const delay = 20;     // ms per frame
+
+  function autoSlide() {
+    if (services.scrollWidth > services.clientWidth) {
+      services.scrollLeft += slideSpeed;
+      scrollAmount += slideSpeed;
+
+      // reset to start when reaching end
+      if (services.scrollLeft + services.clientWidth >= services.scrollWidth) {
+        services.scrollLeft = 0;
+        scrollAmount = 0;
+      }
+    }
+  }
+
+  setInterval(autoSlide, delay);
