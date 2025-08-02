@@ -1,48 +1,67 @@
+// ============================
+// Hamburger Toggle
+// ============================
+const hamburger = document.querySelector(".hamburger");
+const navbar = document.querySelector(".navbar");
 
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
+hamburger.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});
 
-  let current = '';
+// ============================
+// Scrollspy (highlight active link)
+// ============================
+window.addEventListener("scroll", () => {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-links a");
 
-  sections.forEach(section => {
+  let current = "";
+
+  sections.forEach((section) => {
     const top = window.scrollY;
     const offset = section.offsetTop - 130;
     const height = section.offsetHeight;
-    const id = section.getAttribute('id');
+    const id = section.getAttribute("id");
 
     if (top >= offset && top < offset + height) {
       current = id;
     }
   });
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
     }
   });
 });
 
-// Reveal on scroll
-const reveals = document.querySelectorAll('.scroll-reveal');
+// ============================
+// Reveal on Scroll (animation)
+// ============================
+const reveals = document.querySelectorAll(".scroll-reveal");
 
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
 
 reveals.forEach((el, index) => {
   el.style.transitionDelay = `${index * 0.2}s`;
   revealObserver.observe(el);
 });
-// script.js
-window.addEventListener("scroll", function() {
-  const navbar = document.querySelector(".navbar");
+
+// ============================
+// Navbar background change
+// ============================
+window.addEventListener("scroll", function () {
   if (window.scrollY > 50) {
     navbar.classList.add("scrolled");
   } else {
