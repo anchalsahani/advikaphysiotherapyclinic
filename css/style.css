@@ -212,7 +212,7 @@ body {
 }
 .hero-btn {
   padding: 12px 26px;
-  background: var(--theme-color-extra_bg_color);
+  background: var(--theme-color-extra_bd_hover);
   color: var(--theme-color-extra_text);
   border-radius: 24px;
   padding-right: 25px;
@@ -258,15 +258,20 @@ main {
 
 .service-card {
   flex: 0 0 260px;          /* fixed card width */
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--theme-color-inverse_text);
   backdrop-filter: blur(6px);
   border-radius: 15px;
   padding: 20px;
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 18px rgba(146, 103, 103, 0.514);
   transition: transform 0.3s ease;
+}
+.service-card .service-text {
+  flex: 1;
+  color: var(--theme-color-extra_text);
+  text-align: center;
 }
 .service-card:hover {
   transform: scale(1.05);
@@ -346,7 +351,7 @@ main {
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
-  background: #003a32;
+  background: var(--theme-color-inverse_text);
   border-radius: 8px;
   padding: 40px 10%;
 }
@@ -361,7 +366,7 @@ main {
   border-radius: 50%;
   margin-bottom: 12px;
   object-fit: cover;
-  border: 3px solid #ffd166;
+  border: 3px solid var(--theme-color-alter_hover2);
 }
 .contact form {
   display: flex;
@@ -381,7 +386,7 @@ main {
   min-height: 68px;
 }
 .contact button {
-  background: #003a32;
+  background: var(--theme-color-inverse_light);
   color: #fff;
   border: none;
   border-radius: 22px;
@@ -392,7 +397,7 @@ main {
   transition: background 0.15s;
 }
 .contact button:hover {
-  background: #1c6d62;
+  background: var(--theme-color-inverse_text);
 }
 #formStatus {
   margin-left: 8px;
@@ -402,8 +407,8 @@ main {
   margin-top: 26px;
 }
 footer {
-  background:#003a32;
-  color: #b3e0ff;
+  background: var(--theme-color-extra_bg_color);
+  color: var(--theme-color-extra_text);
   text-align: center;
   padding: 15px 0;
   margin-top: 20px;
