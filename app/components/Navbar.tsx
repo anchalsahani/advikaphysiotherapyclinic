@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -47,19 +48,26 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
           : "bg-[#245b52] shadow-md opacity-100"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-20 relative">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
+      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center h-20 relative">
+        {/* 🔥 LOGO SECTION WITH TWO IMAGES */}
+        <Link href="/" className="flex items-center space-x-0">
           <Image
             src="/logo2.png"
-            alt="Advika Physiotherapy Clinic Logo"
-            width={120}
-            height={50}
+            alt="Advika Physiotherapy Clinic Logo Part 1"
+            width={100}
+            height={70}
+            priority
+          />
+          <Image
+            src="/logo3.png"
+            alt="Advika Physiotherapy Clinic Logo Part 2"
+            width={100}
+            height={100}
             priority
           />
         </Link>
 
-        {/* Navigation Links */}
+        {/* 🔗 Navigation Links */}
         <ul className="hidden md:flex gap-10 font-normal text-lg text-white relative">
           <li>
             <Link href="/" className={linkClass}>
