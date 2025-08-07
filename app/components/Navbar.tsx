@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
   const [state, setState] = useState<"top" | "hidden" | "scrolled">("top");
@@ -26,13 +27,11 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
 
   const effectiveState = forceDark ? "scrolled" : state;
 
-  // 🔥 Main nav links (white underline, shorter width)
   const linkClass =
     "relative w-fit inline-block text-white transition-all duration-300 hover:translate-x-1 " +
     "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 " +
     "hover:after:w-[60%]";
 
-  // 🎨 Dropdown links (light gray text + subtle underline)
   const dropdownLinkClass =
     "relative w-fit inline-block text-gray-300 transition-all duration-300 hover:text-white hover:translate-x-1 " +
     "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-gray-400 after:transition-all after:duration-300 " +
@@ -49,29 +48,28 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-20 relative">
-        {/* Logo (replaced text with logo.png) */}
-        <a href="/" className="flex items-center">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
           <Image
             src="/logo2.png"
             alt="Advika Physiotherapy Clinic Logo"
-            width={120}   // adjust as needed
-            height={50}   // adjust as needed
+            width={120}
+            height={50}
             priority
           />
-        </a>
+        </Link>
 
-        {/* Links */}
+        {/* Navigation Links */}
         <ul className="hidden md:flex gap-10 font-normal text-lg text-white relative">
-          {/* Home */}
           <li>
-            import Link from 'next/link'
-          <Link href="/">Home</Link>
+            <Link href="/" className={linkClass}>
+              Home
+            </Link>
           </li>
 
           {/* Dropdown */}
           <li className="relative group">
-            <button className={linkClass}>Pages</button>
-
+            <span className={linkClass}>Pages</span>
             <ul className="absolute left-0 mt-2 w-60 bg-[#0c332d] shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-1 transform transition-all duration-200">
               {[
                 { name: "Our Services", href: "/services" },
@@ -81,32 +79,28 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
                 { name: "Online Booking", href: "/booking" },
               ].map((item, i) => (
                 <li key={i}>
-                  <a
-                    href={item.href}
-                    className={`${dropdownLinkClass} block px-5 py-3`}
-                  >
+                  <Link href={item.href} className={`${dropdownLinkClass} block px-5 py-3`}>
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </li>
 
-          {/* Contact */}
           <li>
-            <a href="/contact" className={linkClass}>
+            <Link href="/contact" className={linkClass}>
               Contact Us
-            </a>
+            </Link>
           </li>
         </ul>
 
-        {/* CTA */}
-        <a
+        {/* CTA Button */}
+        <Link
           href="/contact"
           className="ml-6 px-6 py-2 rounded-full font-normal text-lg bg-[#0c332d] text-white hover:bg-white hover:text-[#1f1f1d] transition"
         >
-          Let’s Talk
-        </a>
+          Let&apos;s Talk
+        </Link>
       </div>
     </nav>
   );
