@@ -64,9 +64,8 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
         <ul className="hidden md:flex gap-10 font-normal text-lg text-white relative">
           {/* Home */}
           <li>
-            <a href="/" className={linkClass}>
-              Home
-            </a>
+            import Link from 'next/link'
+          <Link href="/">Home</Link>
           </li>
 
           {/* Dropdown */}
