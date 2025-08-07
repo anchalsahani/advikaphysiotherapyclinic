@@ -22,7 +22,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: `
             window.$crisp = [];
-            window.CRISP_WEBSITE_ID = "https://advikaclinic.vercel.app/";
+            window.CRISP_WEBSITE_ID = "418f0209-e720-437b-b0cd-45caa5743f0e";
           `,
         }}
       />
