@@ -49,23 +49,20 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center h-20 relative">
-        {/* 🔥 LOGO SECTION WITH TWO IMAGES */}
-        <Link href="/" className="flex items-center space-x-0">
-          <Image
-            src="/logo2.png"
-            alt="Advika Physiotherapy Clinic Logo Part 1"
-            width={100}
-            height={70}
-            priority
-          />
-          <Image
-            src="/logo3.png"
-            alt="Advika Physiotherapy Clinic Logo Part 2"
-            width={100}
-            height={100}
-            priority
-          />
-        </Link>
+        {/* 🔥 LOGO SECTION WITH OVERLAPPING IMAGES */}
+        <Link href="/" className="flex items-center relative">
+  <div className="relative w-[200px] h-[130px] ml-4">
+    {/* First logo */}
+    <Image
+      src="/logo9.png"
+      alt="Advika Physiotherapy Clinic Logo"
+      fill
+      className="object-contain"
+      priority
+    />
+  </div>
+</Link>
+
 
         {/* 🔗 Navigation Links */}
         <ul className="hidden md:flex gap-10 font-normal text-lg text-white relative">
@@ -87,7 +84,10 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
                 { name: "Online Booking", href: "/booking" },
               ].map((item, i) => (
                 <li key={i}>
-                  <Link href={item.href} className={`${dropdownLinkClass} block px-5 py-3`}>
+                  <Link
+                    href={item.href}
+                    className={`${dropdownLinkClass} block px-5 py-3`}
+                  >
                     {item.name}
                   </Link>
                 </li>
