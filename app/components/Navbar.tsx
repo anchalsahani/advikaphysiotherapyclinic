@@ -48,7 +48,7 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
           : "bg-[#245b52] shadow-md opacity-100"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center h-20 relative">
+      <div className="max-w-6xl px-6 flex justify-between items-center h-20 relative">
         {/* 🔥 LOGO SECTION WITH OVERLAPPING IMAGES */}
         <Link href="/" className="flex items-center relative">
   <div className="relative w-[200px] h-[130px] ml-4">
