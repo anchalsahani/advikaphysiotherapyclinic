@@ -6,24 +6,27 @@ export default function Testimonials() {
   const testimonials = [
     {
       quote:
-        "Advika Clinic completely changed my life! After months of pain, their physiotherapists guided me with patience and care. I can finally move freely again.",
-      name: "Priya Sharma",
-      role: "Software Engineer",
-      image: "/person-1.webp",
+        "The doctor and atmosphere is very good. Doctor is doing good job with complete dedication. I earlier visited two more centers for my slip disc related pain issue but could get relax in my pain only here. Highly recommended.",
+      name: "Mohit Agarwal",
+      image: "/mohitaggarwal.png",
     },
     {
       quote:
-        "Their attention to detail and personal approach is unmatched. I felt supported every step of the way during my recovery journey.",
-      name: "Rishika Verma",
-      role: "Athlete",
-      image: "/person-2.jpeg",
+        "Advika Physiotherapy Clinic is a one stop solution for all Physiotherapy treatments & Dr. Swati Sharma is expert in handling her patients with care & humbleness. I remember an instance when i had an intence back pain for so many days & when i approached her, despite she being so busy in shifting home took out necessary equipments from her packed luggage & given me the treatment & i got relief in few minutes, truley a patient centic approach for which i would always remember Dr. Swati.",
+      name: "Sandeep Mishra",
+      image: "/sandeepmishra.png",
     },
     {
       quote:
-        "The team not only treated my injury but also taught me exercises to prevent it from happening again. Truly holistic care.",
-      name: "Anjali Mehta",
-      role: "Teacher",
-      image: "/person-3.webp",
+        "Excellent experience at Advik Phyisotherpy Clinic. The physiotherapists is knowledgeable, friendly, and truly care about the patients' well-being. The facility is clean, modern, and well-equipped.",
+      name: "Himansu Maheshwari",
+      image: "/himanshumaheshwari.png",
+    },
+     {
+      quote:
+        "I recently had the pleasure of receiving treatment from Dr. Swati Sharma and I cannot recommend her highly enough.My mobility and discomfort have significantly improved thanks to her accurate and efficient hands-on approaches. In addition to her technical abilities, she possesses compassion and attentiveness, fostering a comforting and supporting environment. If you’re struggling with cervical pain, I highly recommend Dr. Swati Sharma.",
+      name: "Prachi Malik",
+      image: "/png",
     },
   ];
 

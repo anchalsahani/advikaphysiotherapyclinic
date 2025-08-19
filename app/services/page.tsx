@@ -7,46 +7,77 @@ import {
   FaWheelchair,
   FaUserMd,
   FaHeartbeat,
+  FaBrain,
+  FaBone,
+  FaHandHoldingMedical,
+  FaCrutch,
 } from "react-icons/fa";
 import { MdSelfImprovement } from "react-icons/md";
 
 export default function ServicesPage() {
   const services = [
     {
-      title: "Post-Surgery Recovery",
+      title: "Joint Pain Recovery",
       description:
         "Comprehensive rehabilitation programs designed to restore mobility, reduce pain, and help you return to daily activities after surgery.",
       icon: <FaUserMd className="text-5xl text-[#6d7a5d]" />,
+      image: "/joint-pain.jpeg",
     },
     {
-      title: "Chronic Pain Relief",
+      title: "Muscle Rehabilitation",
       description:
         "Personalized physiotherapy treatments that target the root cause of pain to bring long-term relief and improved lifestyle.",
       icon: <FaHeartbeat className="text-5xl text-[#6d7a5d]" />,
+      image: "/muscle-rehabilitation.jpeg",
     },
     {
-      title: "Sports Injury Rehab",
+      title: "Paralysis Recovery",
       description:
-        "Specialized rehab sessions to get athletes back to peak performance safely and effectively.",
-      icon: <FaRunning className="text-5xl text-[#6d7a5d]" />,
+        "Specialized rehab sessions to improve strength, motor control, and independence after paralysis.",
+      icon: <FaBrain className="text-5xl text-[#6d7a5d]" />,
+      image: "/paralysis.png",
     },
     {
-      title: "Postural Correction",
+      title: "Bells Palsy Treatment",
       description:
-        "Exercises and therapies designed to improve posture, reduce strain, and prevent recurring issues.",
+        "Exercises and therapies designed to stimulate facial muscles and accelerate recovery from Bell’s Palsy.",
       icon: <MdSelfImprovement className="text-5xl text-[#6d7a5d]" />,
+      image: "/bells-palsy.webp",
     },
     {
-      title: "Geriatric Physiotherapy",
+      title: "Cerebral Palsy Care",
       description:
-        "Gentle care and mobility-focused therapies to support the elderly in living independently and pain-free.",
-      icon: <FaWheelchair className="text-5xl text-[#6d7a5d]" />,
-    },
-    {
-      title: "Pediatric Physiotherapy",
-      description:
-        "Supportive treatment plans tailored for children to aid development and recovery from injuries.",
+        "Gentle care and mobility-focused therapies to support children with cerebral palsy in leading independent lives.",
       icon: <FaChild className="text-5xl text-[#6d7a5d]" />,
+      image: "/cerebral-palsy.jpeg",
+    },
+    {
+      title: "Spinal Cord Injury",
+      description:
+        "Targeted rehabilitation to restore function, build strength, and maximize mobility after spinal cord injuries.",
+      icon: <FaWheelchair className="text-5xl text-[#6d7a5d]" />,
+      image: "/spinal-cord.webp",
+    },
+    {
+      title: "Osteoarthritis Management",
+      description:
+        "Holistic treatment plans to reduce pain, strengthen joints, and improve mobility for osteoarthritis patients.",
+      icon: <FaBone className="text-5xl text-[#6d7a5d]" />,
+      image: "/osteoarthritis.webp",
+    },
+    {
+      title: "Post Operative Care",
+      description:
+        "Comprehensive recovery programs with guided exercises to ensure smooth healing after surgery.",
+      icon: <FaHandHoldingMedical className="text-5xl text-[#6d7a5d]" />,
+      image: "/post-operative.jpeg",
+    },
+    {
+      title: "Stroke Physical Therapy",
+      description:
+        "Neurological physiotherapy to regain motor skills, balance, and confidence after a stroke.",
+      icon: <FaCrutch className="text-5xl text-[#6d7a5d]" />,
+      image: "/stroke.jpeg",
     },
   ];
 
@@ -71,15 +102,24 @@ export default function ServicesPage() {
           {services.map((service, i) => (
             <div
               key={i}
-              className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition"
+              className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition"
             >
-              <div className="mb-6">{service.icon}</div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {service.description}
-              </p>
+              {/* Background image on hover */}
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-100 transition duration-500"
+                style={{ backgroundImage: `url(${service.image})` }}
+              ></div>
+
+              {/* Content */}
+              <div className="relative z-10 bg-white/90 group-hover:bg-black/60 transition duration-500 p-8 h-full">
+                <div className="mb-6">{service.icon}</div>
+                <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-white">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 group-hover:text-gray-200 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
