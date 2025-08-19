@@ -66,7 +66,6 @@ export default function Testimonials() {
               <h3 className="text-lg font-semibold text-gray-900">
                 {testimonials[current].name}
               </h3>
-              <p className="text-sm text-gray-500">{testimonials[current].role}</p>
             </div>
           </div>
         </div>
