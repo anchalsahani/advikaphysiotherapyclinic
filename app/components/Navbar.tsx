@@ -21,12 +21,13 @@ export default function Navbar() {
   }, []);
 
   // Check if a link is active
-  const isActiveLink = (href) => {
-    if (href === "/") {
-      return pathname === href;
-    }
-    return pathname.startsWith(href);
-  };
+  const isActiveLink = (href: string): boolean => {
+  if (href === "/") {
+    return pathname === href;
+  }
+  return pathname.startsWith(href);
+};
+
 
   return (
     <>
