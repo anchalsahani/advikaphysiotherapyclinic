@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 export default function BookingPage() {
   return (
     <main className="pt-20">
-      <Navbar forceDark />
 
       {/* Hero Section */}
       <section className="bg-[#f8f7f5] py-20 text-center">
