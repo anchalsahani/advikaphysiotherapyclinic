@@ -36,8 +36,8 @@ export default function Hero() {
           }`}
         >
           <h1 className="text-5xl md:text-6xl font-bold leading-tight drop-shadow-lg">
-            Transforming <span className="text-[#ffcc00]">Health</span>,<br />
-            Restoring <span className="text-[#39FF14]">Lives</span>
+            Transforming <span className="text-[#00e1ff]">Health</span>,<br />
+            Restoring <span className="text-[#26ff00]">Lives</span>
           </h1>
 
           <div className="mt-4 text-lg md:text-xl text-gray-200 drop-shadow-md">
