@@ -1,11 +1,7 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function ContactPage() {
   return (
     <main>
-      <Navbar forceDark />
-
       {/* Contact Hero Section */}
       <section className="bg-[#f8f7f5] py-25 text-center">
         <h1 className="text-4xl md:text-6xl font-libertinus text-gray-900 mb-4">
@@ -71,8 +67,6 @@ export default function ContactPage() {
           </form>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

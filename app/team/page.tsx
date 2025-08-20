@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function TeamPage() {
   const team = [
@@ -27,8 +25,6 @@ export default function TeamPage() {
 
   return (
     <main className="pt-20">
-      <Navbar forceDark />
-
       {/* Hero Section */}
       <section className="bg-[#f8f7f5] py-20 text-center">
         <h1 className="text-4xl md:text-6xl font-libertinus text-gray-900 mb-4">
@@ -68,8 +64,6 @@ export default function TeamPage() {
           ))}
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

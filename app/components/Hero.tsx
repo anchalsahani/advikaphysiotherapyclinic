@@ -1,39 +1,65 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
 import Image from "next/image";
 
 export default function Hero() {
-  return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image with Zoom Effect */}
-      <div className="absolute inset-0 z-0">
-       <Image
-  src="/hero.jpg"
-  alt="Physiotherapy Session"
-  fill
-  className="object-cover z-0 animate-zoomIn"
-  priority
-/>
+  const [isVisible, setIsVisible] = useState(false);
 
-      </div>
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <section className="relative h-screen flex items-center justify-start text-white px-6 overflow-hidden">
+      {/* ✅ Background Image */}
+      <Image
+        src="/hero.jpg"
+        alt="Hero background"
+        fill
+        priority
+        className="absolute inset-0 object-cover -z-10"
+      />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
+      <div className="absolute inset-0 bg-black/50 -z-10"></div>
 
-      {/* Content */}
-      <div className="relative z-20 flex flex-col justify-center h-full px-8 md:px-20">
-        <div className="max-w-3xl pt-30">
-          <h1 className="text-5xl md:text-6xl font-medium text-white leading-tight mb-7 mt-8">
-            Physiotherapy for Rapid Recovery
+      {/* Left aligned content */}
+      <div className="relative z-10 text-left max-w-3xl pl-6 md:pl-20 -mt-16">
+        {/* Heading + Tagline */}
+        <div
+          className={`transition-all duration-1000 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+        >
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight drop-shadow-lg">
+            Transforming <span className="text-[#ffcc00]">Health</span>,<br />
+            Restoring <span className="text-[#39FF14]">Lives</span>
           </h1>
 
-          <button className="bg-[#0c332d] text-white px-6 py-2 rounded-full font-medium hover:bg-[black] transition">
-            Appointments
-          </button>
+          <div className="mt-4 text-lg md:text-xl text-gray-200 drop-shadow-md">
+            <Typewriter
+              options={{
+                strings: [
+                  "Comprehensive care for every patient",
+                  "Expert physiotherapy tailored to you",
+                  "Rehabilitation that brings results",
+                ],
+                autoStart: true,
+                loop: true,
+                delay: 50,
+              }}
+            />
+          </div>
         </div>
 
-        {/* Tagline bottom right */}
-        <p className="absolute bottom-12 right-12 text-white text-sm md:text-base max-w-sm tracking-wide">
-          WE’RE HERE TO HELP YOU MOVE BETTER, FEEL STRONGER, AND LIVE A PAIN-FREE LIFE.
-        </p>
+        {/* CTA Button */}
+        <button className="mt-8 bg-[#0c332d] text-white px-8 py-3 rounded-full font-medium hover:bg-black transition-all duration-300 transform hover:scale-105">
+          Appointments
+        </button>
       </div>
     </section>
   );

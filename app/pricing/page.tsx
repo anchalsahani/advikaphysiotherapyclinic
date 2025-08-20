@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function PricingPage() {
   const plans = [
@@ -41,8 +39,6 @@ export default function PricingPage() {
 
   return (
     <main className="pt-20">
-      <Navbar forceDark />
-
       {/* Hero Section */}
       <section className="bg-[#f8f7f5] py-20 text-center">
         <h1 className="text-4xl md:text-6xl font-libertinus text-gray-900 mb-4">
@@ -107,8 +103,6 @@ export default function PricingPage() {
           ))}
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

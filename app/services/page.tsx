@@ -1,90 +1,73 @@
 "use client";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import {
-  FaRunning,
-  FaChild,
-  FaWheelchair,
-  FaUserMd,
-  FaHeartbeat,
-  FaBrain,
-  FaBone,
-  FaHandHoldingMedical,
-  FaCrutch,
-} from "react-icons/fa";
-import { MdSelfImprovement } from "react-icons/md";
-
 export default function ServicesPage() {
   const services = [
     {
       title: "Joint Pain Recovery",
       description:
         "Comprehensive rehabilitation programs designed to restore mobility, reduce pain, and help you return to daily activities after surgery.",
-      icon: <FaUserMd className="text-5xl text-[#6d7a5d]" />,
+      icon: "/joint.svg",
       image: "/joint-pain.jpeg",
     },
     {
       title: "Muscle Rehabilitation",
       description:
         "Personalized physiotherapy treatments that target the root cause of pain to bring long-term relief and improved lifestyle.",
-      icon: <FaHeartbeat className="text-5xl text-[#6d7a5d]" />,
+      icon: "/muscle.svg",
       image: "/muscle-rehabilitation.jpeg",
     },
     {
       title: "Paralysis Recovery",
       description:
         "Specialized rehab sessions to improve strength, motor control, and independence after paralysis.",
-      icon: <FaBrain className="text-5xl text-[#6d7a5d]" />,
+      icon: "/paralysis.svg",
       image: "/paralysis.png",
     },
     {
       title: "Bells Palsy Treatment",
       description:
-        "Exercises and therapies designed to stimulate facial muscles and accelerate recovery from Bell’s Palsy.",
-      icon: <MdSelfImprovement className="text-5xl text-[#6d7a5d]" />,
+        "Exercises and therapies designed to stimulate facial muscles and accelerate recovery from Bell's Palsy.",
+      icon: "/bells-palsy.png",
       image: "/bells-palsy.webp",
     },
     {
       title: "Cerebral Palsy Care",
       description:
         "Gentle care and mobility-focused therapies to support children with cerebral palsy in leading independent lives.",
-      icon: <FaChild className="text-5xl text-[#6d7a5d]" />,
+      icon: "/cerebral-palsy.svg",
       image: "/cerebral-palsy.jpeg",
     },
     {
       title: "Spinal Cord Injury",
       description:
         "Targeted rehabilitation to restore function, build strength, and maximize mobility after spinal cord injuries.",
-      icon: <FaWheelchair className="text-5xl text-[#6d7a5d]" />,
+      icon: "/spinalcord.svg",
       image: "/spinal-cord.webp",
     },
     {
       title: "Osteoarthritis Management",
       description:
         "Holistic treatment plans to reduce pain, strengthen joints, and improve mobility for osteoarthritis patients.",
-      icon: <FaBone className="text-5xl text-[#6d7a5d]" />,
+      icon: "/arthritis.svg",
       image: "/osteoarthritis.webp",
     },
     {
       title: "Post Operative Care",
       description:
         "Comprehensive recovery programs with guided exercises to ensure smooth healing after surgery.",
-      icon: <FaHandHoldingMedical className="text-5xl text-[#6d7a5d]" />,
+      icon: "/care.svg",
       image: "/post-operative.jpeg",
     },
     {
       title: "Stroke Physical Therapy",
       description:
         "Neurological physiotherapy to regain motor skills, balance, and confidence after a stroke.",
-      icon: <FaCrutch className="text-5xl text-[#6d7a5d]" />,
+      icon: "/stroke.svg",
       image: "/stroke.jpeg",
     },
   ];
 
   return (
     <main>
-      <Navbar forceDark />
-
       {/* Hero Section */}
       <section className="bg-[#f8f7f5] pt-28 pb-16 text-center">
         <h1 className="text-5xl md:text-6xl font-libertinus text-gray-900 mb-4">
@@ -111,12 +94,17 @@ export default function ServicesPage() {
               ></div>
 
               {/* Content */}
-              <div className="relative z-10 bg-white/90 group-hover:bg-black/60 transition duration-500 p-8 h-full">
-                <div className="mb-6">{service.icon}</div>
-                <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-white">
+              <div className="relative z-10 bg-white/90 group-hover:bg-black/80 transition duration-500 p-8 h-full">
+                {/* SVG Illustration with neon green filter on hover */}
+                <img
+                  src={service.icon}
+                  alt={service.title}
+                  className="w-20 h-20 mb-6 mx-auto group-hover:filter group-hover:invert group-hover:brightness-150 group-hover:hue-rotate-60 transition duration-500"
+                />
+                <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-[#39ff14] text-center transition duration-500">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 group-hover:text-gray-200 leading-relaxed">
+                <p className="text-gray-600 group-hover:text-[#39ff14] leading-relaxed text-center transition duration-500">
                   {service.description}
                 </p>
               </div>
@@ -137,8 +125,6 @@ export default function ServicesPage() {
           Book an Appointment
         </a>
       </section>
-
-      <Footer />
     </main>
   );
 }
