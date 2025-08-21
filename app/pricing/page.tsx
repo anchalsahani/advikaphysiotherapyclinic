@@ -2,37 +2,37 @@
 export default function PricingPage() {
   const plans = [
     {
-      name: "Basic Plan",
-      price: "₹999",
-      duration: "per month",
+      name: "Mobility Plan",
+      price: "₹2300",
+      duration: "10 Days",
       features: [
-        "1 physiotherapy session per week",
-        "Basic recovery exercises",
-        "Email support",
-        "Initial consultation",
+        "Targeted therapy plan",
+        "10 Physiotherapy sessions",
+        "45 minutes each",
+        "Home exercise guidance",
       ],
     },
     {
-      name: "Standard Plan",
-      price: "₹1999",
-      duration: "per month",
+      name: "Rehabilitation Plan",
+      price: "₹6000",
+      duration: "30 Days",
       features: [
-        "3 physiotherapy sessions per week",
-        "Customized exercise plan",
-        "Priority email & phone support",
-        "Monthly progress review",
+        "Consultation free",
+        "Pateint history mapping",
+        "Targeted therapy plan",
+        "Phone & email support",
       ],
       highlighted: true, // 👈 middle plan highlighted
     },
     {
-      name: "Premium Plan",
-      price: "₹2999",
-      duration: "per month",
+      name: "Physio At Home",
+      price: "₹500",
+      duration: "per session",
       features: [
-        "Unlimited physiotherapy sessions",
-        "Advanced rehabilitation program",
-        "24/7 phone & email support",
-        "Personal therapist guidance",
+        "Consultation free",
+        "Customised therapy plan",
+        "45 minutes session",
+        "Phone Assistance for chronic patients",
       ],
     },
   ];
