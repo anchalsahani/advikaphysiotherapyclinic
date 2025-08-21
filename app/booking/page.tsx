@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function BookingPage() {
   return (
@@ -100,8 +98,6 @@ export default function BookingPage() {
           </form>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }
