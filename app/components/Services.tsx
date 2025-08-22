@@ -1,55 +1,63 @@
 "use client";
 
-import { GiBoneMace, GiFootprint } from "react-icons/gi";
-import { FaSpa, FaRunning, FaUserMd } from "react-icons/fa";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Services() {
   const services = [
     {
       title: "Joint Pain",
-      description: "Relieves stiffness, improves mobility, and reduces pain in affected joints.",
-      icon: <GiBoneMace size={50} />,
+      description:
+        "Relieves stiffness, improves mobility, and reduces pain in affected joints.",
+      icon: "/joint.svg",
     },
     {
       title: "Muscle Weakness",
-      description: "Strengthens muscles through targeted exercises and rehabilitation.",
-      icon: <FaSpa size={50} />,
+      description:
+        "Strengthens muscles through targeted exercises and rehabilitation.",
+      icon: "/muscle.svg",
     },
     {
       title: "Paralysis treatment",
-      description: "Restores movement and function with specialized physiotherapy techniques.",
-      icon: <GiFootprint size={50} />,
+      description:
+        "Restores movement and function with specialized physiotherapy techniques.",
+      icon: "/paralysis.svg",
     },
     {
       title: "Bell's Palsy Treatment",
-      description: "Improves facial muscle strength and coordination after nerve weakness.",
-      icon: <FaRunning size={50} />,
+      description:
+        "Improves facial muscle strength and coordination after nerve weakness.",
+      icon: "/bells-palsy.png",
     },
     {
       title: "Cerebral Palsy Treatment",
-      description: "Enhances mobility, balance, and daily function in children and adults.",
-      icon: <FaUserMd size={50} />,
+      description:
+        "Enhances mobility, balance, and daily function in children and adults.",
+      icon: "/cerebral-palsy.svg",
     },
     {
       title: "Spinal Cord Injury Treatment",
-      description: "Aids recovery, independence, and prevention of complications.",
-      icon: <FaUserMd size={50} />,
+      description:
+        "Aids recovery, independence, and prevention of complications.",
+      icon: "/spinalcord.svg",
     },
     {
       title: "Osteoarthritis Treatment",
-      description: "Reduces pain, improves flexibility, and strengthens supporting muscles.",
-      icon: <FaUserMd size={50} />,
+      description:
+        "Reduces pain, improves flexibility, and strengthens supporting muscles.",
+      icon: "/arthritis.svg",
     },
     {
       title: "Post Operative Care",
-      description: "Accelerates recovery, restores strength, and prevents stiffness after surgery.",
-      icon: <FaUserMd size={50} />,
+      description:
+        "Accelerates recovery, restores strength, and prevents stiffness after surgery.",
+      icon: "/care.svg",
     },
     {
       title: "Stroke Physical Therapy",
-      description: "Rebuilds movement, balance, and daily living skills after stroke.",
-      icon: <FaUserMd size={50} />,
+      description:
+        "Rebuilds movement, balance, and daily living skills after stroke.",
+      icon: "/stroke.svg",
     },
   ];
 
@@ -76,10 +84,16 @@ export default function Services() {
           {[...services, ...services].map((service, index) => (
             <div
               key={index}
-              className="min-w-[250px] bg-white border-2 shadow-sm rounded-xl p-8 hover:shadow-lg transition"
+              className="min-w-[250px] bg-white border-1 shadow-sm rounded-xl p-8 hover:shadow-lg transition"
             >
-              <div className="text-[#30342b] flex justify-center mb-5">
-                {service.icon}
+              <div className="flex justify-center mb-5">
+                <Image
+                  src={service.icon}
+                  alt={service.title}
+                  width={50}
+                  height={50}
+                  className="object-contain"
+                />
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">
                 {service.title}
