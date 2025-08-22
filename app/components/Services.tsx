@@ -1,37 +1,60 @@
+"use client";
+
 import { GiBoneMace, GiFootprint } from "react-icons/gi";
-import { FaSpa, FaRunning, FaUserMd } from "react-icons/fa"; // 👈 added FaUserMd
+import { FaSpa, FaRunning, FaUserMd } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function Services() {
   const services = [
     {
-      title: "Trauma recovery",
-      description: "Sed do eiusmod tempor",
+      title: "Joint Pain",
+      description: "Relieves stiffness, improves mobility, and reduces pain in affected joints.",
       icon: <GiBoneMace size={50} />,
     },
     {
-      title: "Spinal treatment",
-      description: "Sed do eiusmod tempor",
+      title: "Muscle Weakness",
+      description: "Strengthens muscles through targeted exercises and rehabilitation.",
       icon: <FaSpa size={50} />,
     },
     {
-      title: "Joint treatment",
-      description: "Sed do eiusmod tempor",
+      title: "Paralysis treatment",
+      description: "Restores movement and function with specialized physiotherapy techniques.",
       icon: <GiFootprint size={50} />,
     },
     {
-      title: "Exercises",
-      description: "Sed do eiusmod tempor",
+      title: "Bell's Palsy Treatment",
+      description: "Improves facial muscle strength and coordination after nerve weakness.",
       icon: <FaRunning size={50} />,
     },
     {
-      title: "Counselling", // 👈 new service
-      description: "Professional guidance & support",
-      icon: <FaUserMd size={50} />, // 👈 doctor/counsellor icon
+      title: "Cerebral Palsy Treatment",
+      description: "Enhances mobility, balance, and daily function in children and adults.",
+      icon: <FaUserMd size={50} />,
+    },
+    {
+      title: "Spinal Cord Injury Treatment",
+      description: "Aids recovery, independence, and prevention of complications.",
+      icon: <FaUserMd size={50} />,
+    },
+    {
+      title: "Osteoarthritis Treatment",
+      description: "Reduces pain, improves flexibility, and strengthens supporting muscles.",
+      icon: <FaUserMd size={50} />,
+    },
+    {
+      title: "Post Operative Care",
+      description: "Accelerates recovery, restores strength, and prevents stiffness after surgery.",
+      icon: <FaUserMd size={50} />,
+    },
+    {
+      title: "Stroke Physical Therapy",
+      description: "Rebuilds movement, balance, and daily living skills after stroke.",
+      icon: <FaUserMd size={50} />,
     },
   ];
 
   return (
-    <section className="bg-[#f8f7f5] py-20">
+    <section className="bg-[#f8f7f5] py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">
         {/* Subtitle */}
         <p className="text-sm tracking-widest text-gray-600 mb-3 uppercase">
@@ -43,12 +66,17 @@ export default function Services() {
           Exceptional experience
         </h2>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
-          {services.map((service, index) => (
+        {/* Carousel */}
+        <motion.div
+          className="flex gap-6"
+          animate={{ x: ["0%", "-100%"] }}
+          transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+        >
+          {/* Duplicate list so it loops seamlessly */}
+          {[...services, ...services].map((service, index) => (
             <div
               key={index}
-              className="bg-white shadow-sm rounded-1 p-8 hover:shadow-lg transition"
+              className="min-w-[250px] bg-white shadow-sm rounded-xl p-8 hover:shadow-lg transition"
             >
               <div className="text-[#6d7a5d] flex justify-center mb-5">
                 {service.icon}
@@ -59,7 +87,7 @@ export default function Services() {
               <p className="text-gray-500 text-sm">{service.description}</p>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
