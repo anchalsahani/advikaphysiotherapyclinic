@@ -63,7 +63,7 @@ export default function Services() {
 
         {/* Title */}
         <h2 className="text-5xl md:text-7xl font-libertinus text-gray-900 mb-12">
-          Exceptional experience
+          Exceptional Experience
         </h2>
 
         {/* Carousel */}
@@ -76,15 +76,15 @@ export default function Services() {
           {[...services, ...services].map((service, index) => (
             <div
               key={index}
-              className="min-w-[250px] bg-white shadow-sm rounded-xl p-8 hover:shadow-lg transition"
+              className="min-w-[250px] bg-white border-2 shadow-sm rounded-xl p-8 hover:shadow-lg transition"
             >
-              <div className="text-[#6d7a5d] flex justify-center mb-5">
+              <div className="text-[#30342b] flex justify-center mb-5">
                 {service.icon}
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">
                 {service.title}
               </h3>
-              <p className="text-gray-500 text-sm">{service.description}</p>
+              <p className="text-gray-900 text-sm">{service.description}</p>
             </div>
           ))}
         </motion.div>
