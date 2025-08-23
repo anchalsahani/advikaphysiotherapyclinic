@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 
 export default function PricingPage() {
   const plans = [
@@ -42,27 +43,43 @@ export default function PricingPage() {
     <main className="pt-20">
       {/* Hero Section */}
       <section className="bg-[#f8f7f5] py-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-libertinus text-gray-900 mb-4">
+        <motion.h1
+          className="text-4xl md:text-6xl font-libertinus text-gray-900 mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+          whileHover={{ scale: 1.05, color: "#16a34a" }}
+        >
           Pricing Plans
-        </h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        </motion.h1>
+        <motion.p
+          className="text-gray-600 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.2 } }}
+        >
           Choose a plan that fits your needs and start your journey to better
           health with Advika Physiotherapy Clinic.
-        </p>
+        </motion.p>
       </section>
 
       {/* Pricing Cards */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {plans.map((plan, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`relative bg-white rounded-2xl shadow-md p-8 text-center transition transform hover:-translate-y-2 hover:shadow-xl ${
-                plan.highlighted ? "border-4 border-emerald-500" : "border border-gray-200"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className={`relative rounded-2xl shadow-md p-8 text-center transition transform hover:-translate-y-2 hover:shadow-xl ${
+                plan.highlighted
+                  ? "bg-white border-4 border-emerald-500"
+                  : "bg-green-50 border border-gray-200 hover:bg-green-100"
               }`}
             >
               {/* Plan Name */}
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              <h3 className={`text-2xl font-semibold mb-4 ${
+                  plan.highlighted ? "text-gray-900" : "text-gray-800"
+                }`}>
                 {plan.name}
               </h3>
 
@@ -92,7 +109,7 @@ export default function PricingPage() {
                 className={`block px-6 py-3 rounded-full font-medium transition ${
                   plan.highlighted
                     ? "bg-emerald-500 text-white hover:bg-emerald-600"
-                    : "bg-gray-100 text-gray-900 hover:bg-gray-200"
+                    : "bg-green-200 text-gray-900 hover:bg-green-300"
                 }`}
               >
                 Get Started
@@ -104,7 +121,7 @@ export default function PricingPage() {
                   Most Popular
                 </span>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>

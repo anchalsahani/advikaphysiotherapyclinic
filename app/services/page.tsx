@@ -1,4 +1,6 @@
 "use client";
+import { motion } from "framer-motion";
+
 export default function ServicesPage() {
   const services = [
     {
@@ -70,13 +72,22 @@ export default function ServicesPage() {
     <main>
       {/* Hero Section */}
       <section className="bg-[#f8f7f5] pt-28 pb-16 text-center">
-        <h1 className="text-5xl md:text-6xl font-libertinus text-gray-900 mb-4">
+        <motion.h1
+          className="text-5xl md:text-6xl font-libertinus text-green-700 mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+          whileHover={{ scale: 1.05, color: "#16a34a" }}
+        >
           Our Services
-        </h1>
-        <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+        </motion.h1>
+        <motion.p
+          className="text-gray-900 max-w-5xl mx-auto font-extrabold text-lg"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.2 } }}
+        >
           We provide specialized physiotherapy services designed to help you
           recover faster, move better, and live pain-free.
-        </p>
+        </motion.p>
       </section>
 
       {/* Services Grid */}
@@ -85,7 +96,7 @@ export default function ServicesPage() {
           {services.map((service, i) => (
             <div
               key={i}
-              className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition"
+              className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-transform duration-500 hover:scale-105"
             >
               {/* Background image on hover */}
               <div
@@ -94,17 +105,16 @@ export default function ServicesPage() {
               ></div>
 
               {/* Content */}
-              <div className="relative z-10 bg-white/90 group-hover:bg-black/80 transition duration-500 p-8 h-full">
-                {/* SVG Illustration with neon green filter on hover */}
+              <div className="relative z-10 bg-white/90 group-hover:bg-black/80 transition duration-500 p-8 h-full flex flex-col items-center text-center">
                 <img
                   src={service.icon}
                   alt={service.title}
-                  className="w-20 h-20 mb-6 mx-auto group-hover:filter group-hover:invert group-hover:brightness-150 group-hover:hue-rotate-60 transition duration-500"
+                  className="w-20 h-20 mb-6 transition duration-500 group-hover:filter group-hover:invert group-hover:brightness-150 group-hover:hue-rotate-60"
                 />
-                <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-[#39ff14] text-center transition duration-500">
+                <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-[#39ff14] transition duration-500">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 group-hover:text-[#39ff14] leading-relaxed text-center transition duration-500">
+                <p className="text-gray-600 group-hover:text-[#39ff14] leading-relaxed transition duration-500">
                   {service.description}
                 </p>
               </div>
@@ -114,11 +124,8 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      {/* CTA Section */}
       <section className="bg-gradient-to-r from-[#1e3a34] via-[#245b52] to-[#2f5f4a] text-white py-20 text-center relative overflow-hidden">
-        {/* Subtle pattern / overlay */}
         <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5"></div>
-
         <div className="relative z-10">
           <h2 className="text-3xl md:text-4xl font-libertinus mb-6">
             Ready to start your recovery journey?
