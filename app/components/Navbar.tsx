@@ -147,16 +147,7 @@ export default function Navbar() {
                     </Link>
                   ))}
                 </div>
-              </div>
-
-              <Link 
-                href="/about" 
-                className={`relative font-medium transition-colors ${isScrolled ? 'text-gray-800 hover:text-[#245b52]' : 'text-black hover:text-[#39ff14]'} ${isActiveLink('/about') ? 'text-[#245b52] font-semibold' : ''}`}
-              >
-                About
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[#245b52] transition-all duration-300 ${isActiveLink('/about') ? 'w-full' : 'group-hover:w-full'}`}></span>
-              </Link>
-              
+              </div>              
               <Link 
                 href="/contact" 
                 className={`relative font-medium transition-colors ${isScrolled ? 'text-gray-800 hover:text-[#245b52]' : 'text-black hover:text-[#39ff14]'} ${isActiveLink('/contact') ? 'text-[#245b52] font-semibold' : ''}`}
