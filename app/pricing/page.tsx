@@ -1,3 +1,4 @@
+"use client";
 
 export default function PricingPage() {
   const plans = [
@@ -18,11 +19,11 @@ export default function PricingPage() {
       duration: "30 Days",
       features: [
         "Consultation free",
-        "Pateint history mapping",
+        "Patient history mapping",
         "Targeted therapy plan",
         "Phone & email support",
       ],
-      highlighted: true, // 👈 middle plan highlighted
+      highlighted: true, // Middle plan highlighted
     },
     {
       name: "Physio At Home",
@@ -57,7 +58,7 @@ export default function PricingPage() {
             <div
               key={index}
               className={`relative bg-white rounded-2xl shadow-md p-8 text-center transition transform hover:-translate-y-2 hover:shadow-xl ${
-                plan.highlighted ? "border-4 border-[#6d7a5d]" : ""
+                plan.highlighted ? "border-4 border-emerald-500" : "border border-gray-200"
               }`}
             >
               {/* Plan Name */}
@@ -66,7 +67,11 @@ export default function PricingPage() {
               </h3>
 
               {/* Price */}
-              <p className="text-4xl font-bold text-[#6d7a5d] mb-2">
+              <p
+                className={`text-4xl font-bold mb-2 ${
+                  plan.highlighted ? "text-emerald-600" : "text-gray-700"
+                }`}
+              >
                 {plan.price}
               </p>
               <p className="text-gray-500 mb-6">{plan.duration}</p>
@@ -75,7 +80,7 @@ export default function PricingPage() {
               <ul className="space-y-3 text-gray-700 mb-8 text-left">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-center gap-3">
-                    <span className="text-green-600 font-bold">✔</span>
+                    <span className="text-emerald-500 font-bold">✔</span>
                     {feature}
                   </li>
                 ))}
@@ -86,8 +91,8 @@ export default function PricingPage() {
                 href="/booking"
                 className={`block px-6 py-3 rounded-full font-medium transition ${
                   plan.highlighted
-                    ? "bg-[#6d7a5d] text-white hover:bg-[#5a6953]"
-                    : "bg-gray-200 text-gray-900 hover:bg-gray-300"
+                    ? "bg-emerald-500 text-white hover:bg-emerald-600"
+                    : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                 }`}
               >
                 Get Started
@@ -95,7 +100,7 @@ export default function PricingPage() {
 
               {/* Popular Badge */}
               {plan.highlighted && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#6d7a5d] text-white px-4 py-1 rounded-full text-sm">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1 rounded-full text-sm">
                   Most Popular
                 </span>
               )}
