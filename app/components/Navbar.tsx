@@ -82,7 +82,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center">
               <div className="relative h-16 flex items-center">
                  <Image
-                  src={isScrolled ? "/logo1.png" : "/logo1.png"}
+                  src={isScrolled ? "/logomain.png" : "/logomain.png"}
                   alt="Advika Physiotherapy Clinic Logo"
                   width={160}
                   height={64}

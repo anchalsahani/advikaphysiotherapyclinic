@@ -25,13 +25,14 @@ export default function Testimonials() {
     },
     {
       quote:
-        "I recently had the pleasure of receiving treatment from Dr. Swati Sharma and I cannot recommend her highly enough.My mobility and discomfort have significantly improved thanks to her accurate and efficient hands-on approaches. In addition to her technical abilities, she possesses compassion and attentiveness, fostering a comforting and supporting environment. If you’re struggling with cervical pain, I highly recommend Dr. Swati Sharma.",
+        "I recently had the pleasure of receiving treatment from Dr. Swati Sharma and I cannot recommend her highly enough. My mobility and discomfort have significantly improved thanks to her accurate and efficient hands-on approaches. In addition to her technical abilities, she possesses compassion and attentiveness, fostering a comforting and supporting environment. If you’re struggling with cervical pain, I highly recommend Dr. Swati Sharma.",
       name: "Prachi Malik",
       image: "/png",
     },
   ];
 
   const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   const nextTestimonial = () => {
     setCurrent((prev) => (prev + 1) % testimonials.length);
@@ -41,23 +42,28 @@ export default function Testimonials() {
     setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  // Auto-slide every 5 seconds
+  // Auto-slide every 2s (faster)
   useEffect(() => {
-    const timer = setInterval(() => {
-      nextTestimonial();
-    }, 2000); // 5s
-
-    return () => clearInterval(timer); // cleanup
-  }, []);
+    if (!paused) {
+      const timer = setInterval(nextTestimonial, 2000); // 2 seconds
+      return () => clearInterval(timer);
+    }
+  }, [paused]);
 
   return (
     <section className="bg-[#f8f7f5] py-20 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-6xl font-libertinus text-gray-900 mb-12">
+        {/* Title */}
+        <motion.h2
+          className="text-4xl md:text-6xl font-libertinus text-green-700 mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+          whileHover={{ scale: 1.05, color: "#16a34a" }}
+        >
           What our patients say
-        </h2>
+        </motion.h2>
 
-        {/* Testimonial Card with Animation */}
+        {/* Testimonial Card */}
         <div className="relative h-[300px] md:h-[350px] flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
@@ -66,14 +72,16 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="absolute bg-white shadow-lg rounded-lg p-10 w-full"
+              className="absolute bg-white shadow-lg rounded-xl p-10 w-full hover:scale-105 transition-transform duration-300"
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
             >
-              <p className="text-xl md:text-2xl text-gray-700 italic leading-relaxed mb-8">
+              <p className="text-xl md:text-2xl text-[#1e3a8a] italic leading-relaxed mb-8 group-hover:text-[#2563eb] transition-colors">
                 “{testimonials[current].quote}”
               </p>
 
               <div className="flex items-center justify-center gap-4">
-                <div className="w-16 h-16 relative rounded-full overflow-hidden">
+                <div className="w-16 h-16 relative rounded-full overflow-hidden transition-transform duration-300 hover:scale-110">
                   <Image
                     src={testimonials[current].image}
                     alt={testimonials[current].name}
@@ -82,7 +90,7 @@ export default function Testimonials() {
                   />
                 </div>
                 <div className="text-left">
-                  <h3 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-[#1e3a8a] group-hover:text-[#2563eb] transition-colors">
                     {testimonials[current].name}
                   </h3>
                 </div>
@@ -95,13 +103,13 @@ export default function Testimonials() {
         <div className="flex justify-center gap-6 mt-10">
           <button
             onClick={prevTestimonial}
-            className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-400 hover:bg-[#6d7a5d] hover:text-white transition"
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white transition"
           >
             ←
           </button>
           <button
             onClick={nextTestimonial}
-            className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-400 hover:bg-[#6d7a5d] hover:text-white transition"
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white transition"
           >
             →
           </button>
