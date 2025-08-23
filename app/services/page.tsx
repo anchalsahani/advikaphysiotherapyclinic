@@ -114,16 +114,25 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-[#6d7a5d] text-white py-20 text-center">
-        <h2 className="text-3xl md:text-4xl font-libertinus mb-6">
-          Ready to start your recovery journey?
-        </h2>
-        <a
-          href="/booking"
-          className="inline-block px-8 py-4 rounded-full bg-white text-[#1f1f1d] text-lg font-medium hover:bg-gray-200 transition"
-        >
-          Book an Appointment
-        </a>
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-[#1e3a34] via-[#245b52] to-[#2f5f4a] text-white py-20 text-center relative overflow-hidden">
+        {/* Subtle pattern / overlay */}
+        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5"></div>
+
+        <div className="relative z-10">
+          <h2 className="text-3xl md:text-4xl font-libertinus mb-6">
+            Ready to start your recovery journey?
+          </h2>
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-8">
+            Book your appointment today and take the first step towards pain-free living.
+          </p>
+          <a
+            href="/booking"
+            className="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-[#34d399] to-[#059669] text-white text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition transform duration-300"
+          >
+            Book an Appointment
+          </a>
+        </div>
       </section>
     </main>
   );

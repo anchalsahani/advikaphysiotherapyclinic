@@ -2,21 +2,21 @@ export default function ServiceList() {
   const services = [
     {
       number: "01",
-      title: "Post-surgery recovery",
+      title: "Post-Surgery Recovery",
       description:
-        "Sed ut perspiciatis unde omnis iste natus ut perspiciatis unde omnis. Sed ut perspiciatis unde omnis iste natus error sit ut perspiciatis unde omnis iste natus.",
+        "Guided rehabilitation programs designed to restore strength, mobility, and confidence after surgery, ensuring a smooth and safe recovery.",
     },
     {
       number: "02",
-      title: "Chronic pain relief",
+      title: "Chronic Pain Relief",
       description:
-        "Sed ut perspiciatis unde omnis iste natus ut perspiciatis unde omnis. Sed ut perspiciatis unde omnis iste natus error sit ut perspiciatis unde omnis iste natus.",
+        "Personalized therapies that target the root cause of persistent pain, helping you regain comfort, function, and quality of life.",
     },
     {
       number: "03",
-      title: "Sports injury rehab",
+      title: "Sports Injury Rehab",
       description:
-        "Sed ut perspiciatis unde omnis iste natus ut perspiciatis unde omnis. Sed ut perspiciatis unde omnis iste natus error sit ut perspiciatis unde omnis iste natus.",
+        "Specialized treatment plans to accelerate healing, prevent re-injury, and get athletes back to peak performance with confidence.",
     },
   ];
 
@@ -30,7 +30,7 @@ export default function ServiceList() {
 
         {/* Title */}
         <h2 className="text-4xl md:text-6xl font-libertinus text-gray-900 mb-15">
-          Exceptional physiotherapy <br /> care for your wellness
+          Exceptional Physiotherapy <br /> Care for Your Wellness
         </h2>
 
         <hr className="border-gray-300 mb-12" />
@@ -44,20 +44,20 @@ export default function ServiceList() {
             >
               {/* Left - Number & Title */}
               <div className="flex items-center space-x-6 mb-4 md:mb-0">
-                <span className="text-6xl font-extralight text-[#bfc2bb] transition-colors duration-300 group-hover:text-[#6d7a5d]">
+                <span className="text-6xl font-extralight text-[#bfc2bb] transition-colors duration-300 group-hover:text-[#0c332d]">
                   {service.number}
                 </span>
-                <h3 className="text-3xl font-medium text-gray-800">
+                <h3 className="text-3xl font-medium text-gray-800 transition-colors duration-300 group-hover:text-[#0c332d]">
                   {service.title}
                 </h3>
               </div>
 
               {/* Right - Description + Arrow */}
               <div className="flex items-center justify-between md:w-2/3">
-                <p className="text-gray-500 text-base leading-relaxed">
+                <p className="text-gray-900 text-base leading-relaxed transition-colors duration-300 group-hover:text-[#0c332d]">
                   {service.description}
                 </p>
-                <button className="ml-4 w-10 h-10 flex items-center justify-center rounded-full border border-gray-400 hover:bg-[#6d7a5d] hover:text-white transition">
+                <button className="ml-4 w-10 h-10 flex items-center justify-center rounded-full border border-[#3fafa4] text-[#3fafa4] hover:bg-[#3fafa4] hover:text-white transition">
                   →
                 </button>
               </div>

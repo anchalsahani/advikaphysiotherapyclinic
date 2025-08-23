@@ -14,8 +14,7 @@ export default function AboutSection() {
         Excellence in care, <br /> delivered with pride
       </h2>
       <p className="text-gray-600 text-lg leading-relaxed mb-6">
-        Inde omnis iste natus error sit voluptatem accusantium doloremque
-        laudantium, totam rem aperiam. Sed ut perspiciatis unde.
+        We are committed to providing the highest standards of service, where compassion meets expertise. Every step of your journey with us is guided by dedication, integrity, and a genuine focus on your well-being.
       </p>
     </div>
 
