@@ -10,7 +10,7 @@ export default function Services() {
       title: "Joint Pain",
       description:
         "Relieves stiffness, improves mobility, and reduces pain in affected joints.",
-      icon: "/joint.svg",
+      icon: "/joint.png",
     },
     {
       title: "Muscle Weakness",
@@ -22,7 +22,7 @@ export default function Services() {
       title: "Paralysis treatment",
       description:
         "Restores movement and function with specialized physiotherapy techniques.",
-      icon: "/paralysis.svg",
+      icon: "/paralysis1.png",
     },
     {
       title: "Bell's Palsy Treatment",
@@ -40,13 +40,13 @@ export default function Services() {
       title: "Spinal Cord Injury Treatment",
       description:
         "Aids recovery, independence, and prevention of complications.",
-      icon: "/spinalcord.svg",
+      icon: "/spinal-cord.png",
     },
     {
       title: "Osteoarthritis Treatment",
       description:
         "Reduces pain, improves flexibility, and strengthens supporting muscles.",
-      icon: "/arthritis.svg",
+      icon: "/arthritis.png",
     },
     {
       title: "Post Operative Care",
