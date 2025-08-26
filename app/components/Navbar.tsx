@@ -133,7 +133,7 @@ export default function Navbar() {
                 >
                   {[
                     { name: "Our Services", href: "/services" },
-                    { name: "Our Team", href: "/team" },
+                    // { name: "Our Team", href: "/team" },
                     { name: "Testimonials", href: "/testimonials" },
                     { name: "Pricing", href: "/pricing" },
                     { name: "Online Booking", href: "/booking" },
