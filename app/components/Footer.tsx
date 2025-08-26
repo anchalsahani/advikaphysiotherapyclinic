@@ -57,7 +57,7 @@ export default function Footer() {
             <li className="flex items-start gap-2">
               <MapPin className="w-4 h-4 mt-1 text-[#34d399]" />
               <span>
-                D 008, Anjara Integrity, Raj Nagar Extension,<br />
+                D 008, Ajnara Integrity, Raj Nagar Extension,<br />
                 Ghaziabad, Uttar Pradesh 201017
               </span>
             </li>
