@@ -57,7 +57,7 @@ export default function Footer() {
             <li className="flex items-start gap-2">
               <MapPin className="w-4 h-4 mt-1 text-[#34d399]" />
               <span>
-                C-56, Main Road, Raj Nagar Extension,<br />
+                D 008, Anjara Integrity, Raj Nagar Extension,<br />
                 Ghaziabad, Uttar Pradesh 201017
               </span>
             </li>
@@ -70,7 +70,7 @@ export default function Footer() {
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-[#34d399]" />
               <a href="mailto:info@advikaclinic.com" className="hover:text-white">
-                Drswati6213@gmail.com
+                swati6213@gmail.com
               </a>
             </li>
           </ul>
