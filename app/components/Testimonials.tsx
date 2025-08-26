@@ -21,13 +21,7 @@ export default function Testimonials() {
       quote:
         "Excellent experience at Advik Phyisotherpy Clinic. The physiotherapists is knowledgeable, friendly, and truly care about the patients' well-being. The facility is clean, modern, and well-equipped.",
       name: "Himansu Maheshwari",
-      image: "/himanshumaheshwari.png",
-    },
-    {
-      quote:
-        "I recently had the pleasure of receiving treatment from Dr. Swati Sharma and I cannot recommend her highly enough. My mobility and discomfort have significantly improved thanks to her accurate and efficient hands-on approaches. In addition to her technical abilities, she possesses compassion and attentiveness, fostering a comforting and supporting environment. If you’re struggling with cervical pain, I highly recommend Dr. Swati Sharma.",
-      name: "Prachi Malik",
-      image: "/png",
+      image: "/himanshu.jpg",
     },
   ];
 
