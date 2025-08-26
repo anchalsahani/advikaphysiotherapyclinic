@@ -77,13 +77,13 @@ export default function Footer() {
 
           {/* Socials */}
           <div className="flex gap-4 mt-5">
-            <a href="#" aria-label="Facebook" className="hover:text-white">
+            <a href="" aria-label="Facebook" className="hover:text-white">
               <Facebook className="w-5 h-5" />
             </a>
-            <a href="#" aria-label="Instagram" className="hover:text-white">
+            <a href="https://www.instagram.com/advikaphysiotherapyclinic?igsh=MWNqZWdhYWd1MmVmeA==" aria-label="Instagram" className="hover:text-white">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-white">
+            <a href="https://www.linkedin.com/in/dr-swati-sharma-pt-a597a81b1/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn" className="hover:text-white">
               <Linkedin className="w-5 h-5" />
             </a>
           </div>
