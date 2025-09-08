@@ -159,10 +159,10 @@ export default function Navbar() {
               {/* Buttons */}
               <div className="flex items-center space-x-4 ml-6">
                 <Link
-                  href="/home-services"
+                  href="/pricing"
                   className="relative px-5 py-2.5 rounded-full font-medium text-white bg-[#245b52] overflow-hidden group shadow-md transition-all duration-300 hover:shadow-lg"
                 >
-                  <span className="relative z-10">Home Services</span>
+                  <span className="relative z-10">Pricing</span>
                   <div className="absolute inset-0 bg-[#1a443d] transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
                 </Link>
                 <Link

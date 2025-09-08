@@ -46,7 +46,7 @@ export default function AboutSection() {
           {/* Bottom Image with overlay */}
           <div className="relative w-full h-[250px] md:h-[300px] rounded overflow-hidden shadow-lg group">
             <Image
-              src="/about-2.webp"
+              src="/aboutimg1.jpg"
               alt="Additional Physiotherapy"
               fill
               className="object-cover"
@@ -59,7 +59,7 @@ export default function AboutSection() {
         {/* Right Image with overlay */}
         <div className="relative w-full h-[500px] rounded overflow-hidden shadow-lg group">
           <Image
-            src="/about-1.avif"
+            src="/aboutimg2.webp"
             alt="Physiotherapy Session"
             fill
             className="object-cover"
