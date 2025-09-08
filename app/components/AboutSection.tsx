@@ -59,7 +59,7 @@ export default function AboutSection() {
         {/* Right Image with overlay */}
         <div className="relative w-full h-[500px] rounded overflow-hidden shadow-lg group">
           <Image
-            src="/paralysis.png"
+            src="/about2.png"
             alt="Physiotherapy Session"
             fill
             className="object-cover"
