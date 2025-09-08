@@ -5,6 +5,9 @@ import { motion, AnimatePresence, useAnimation } from "framer-motion";
 
 export default function ContactPage() {
   const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const controls = useAnimation();
 
   useEffect(() => {
@@ -15,16 +18,50 @@ export default function ContactPage() {
     });
   }, [controls]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setShowToast(true);
+    setIsLoading(true);
+    
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
 
-    setTimeout(() => setShowToast(false), 3000);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setToastMessage("✅ Your message has been sent successfully!");
+        setIsError(false);
+        form.reset();
+      } else {
+        const errorData = await response.json();
+        setToastMessage(`❌ ${errorData.error || "Failed to send message"}`);
+        setIsError(true);
+      }
+    } catch (error) {
+      setToastMessage("❌ Network error. Please try again later.");
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 5000);
+    }
   };
 
   return (
     <main>
-      {/* Contact Hero Section */}
+     
       <section className="bg-gradient-to-r from-[#f8f7f5] to-[#e8f5f1] py-28 text-center">
         <motion.h1
           className="text-4xl md:text-6xl font-libertinus text-gray-900 mb-4"
@@ -50,9 +87,8 @@ export default function ContactPage() {
         </motion.p>
       </section>
 
-      {/* Contact Image + Form */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-        {/* Left - Professional Medical SVG */}
+       
         <motion.div
           className="w-full h-full rounded-2xl overflow-hidden shadow-lg flex items-center justify-center bg-[#f0fdfa]"
           initial={{ opacity: 0, y: 40 }}
@@ -92,7 +128,7 @@ export default function ContactPage() {
           </svg>
         </motion.div>
 
-        {/* Right - Form */}
+      
         <motion.div
           className="bg-white shadow-xl rounded-2xl p-10 border border-gray-100 flex flex-col justify-center"
           initial={{ opacity: 0, y: 40 }}
@@ -101,54 +137,64 @@ export default function ContactPage() {
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                 Name
               </label>
               <input
+                id="name"
+                name="name"
                 type="text"
-                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0c332d] transition"
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0c332d] transition bg-white text-gray-800 placeholder-gray-500"
                 placeholder="Your Name"
                 required
+                disabled={isLoading}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 Email
               </label>
               <input
+                id="email"
+                name="email"
                 type="email"
-                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0c332d] transition"
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0c332d] transition bg-white text-gray-800 placeholder-gray-500"
                 placeholder="you@example.com"
                 required
+                disabled={isLoading}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                 Message
               </label>
               <textarea
+                id="message"
+                name="message"
                 rows={4}
-                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0c332d] transition"
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0c332d] transition bg-white text-gray-800 placeholder-gray-500"
                 placeholder="Your message..."
                 required
+                disabled={isLoading}
               ></textarea>
             </div>
 
             <motion.button
-              whileHover={{ scale: 1.02, backgroundColor: "#0c332d" }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={isLoading ? {} : { scale: 1.02, backgroundColor: "#0c332d" }}
+              whileTap={isLoading ? {} : { scale: 0.98 }}
               type="submit"
-              className="w-full bg-gradient-to-r from-[#34d399] to-[#059669] text-white px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition duration-300"
+              disabled={isLoading}
+              className={`w-full bg-gradient-to-r from-[#34d399] to-[#059669] text-white px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition duration-300 ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              Send Message
+              {isLoading ? 'Sending...' : 'Send Message'}
             </motion.button>
           </form>
         </motion.div>
       </section>
 
-      {/* ✅ Toast Notification */}
+      
       <AnimatePresence>
         {showToast && (
           <motion.div
@@ -156,9 +202,9 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0, y: 0 }}
             exit={{ opacity: 0, x: 50, y: 50 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-6 right-6 bg-[#0c332d] text-white px-6 py-4 rounded-xl shadow-lg text-sm font-medium"
+            className={`fixed bottom-6 right-6 ${isError ? 'bg-red-600' : 'bg-[#0c332d]'} text-white px-6 py-4 rounded-xl shadow-lg text-sm font-medium max-w-md`}
           >
-            ✅ Your message has been sent successfully!
+            {toastMessage}
           </motion.div>
         )}
       </AnimatePresence>
