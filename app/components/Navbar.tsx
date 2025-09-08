@@ -290,11 +290,11 @@ export default function Navbar() {
               
               <div className="pt-4 border-t border-gray-200 mt-2 space-y-3">
                 <Link
-                  href="/home-services"
+                  href="/pricing"
                   className="block text-center px-5 py-3 rounded-full font-medium text-white bg-[#245b52] hover:bg-[#1a443d] transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Home Services
+                  Pricing
                 </Link>
                 <Link
                   href="/contact"
