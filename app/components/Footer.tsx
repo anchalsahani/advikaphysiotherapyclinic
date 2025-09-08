@@ -33,7 +33,7 @@ export default function Footer() {
               { name: "Home", href: "/" },
               { name: "About Us", href: "/about" },
               { name: "Our Services", href: "/services" },
-              { name: "Meet the Team", href: "/team" },
+              // { name: "Meet the Team", href: "/team" },
               { name: "Patient Testimonials", href: "/testimonials" },
               { name: "Book Appointment", href: "/booking" },
               { name: "Contact Us", href: "/contact" },
