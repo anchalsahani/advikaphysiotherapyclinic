@@ -1,30 +1,56 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import Image from "next/image";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
 
+  // ✅ Array of background images
+  const images = ["/hero.jpg", "/hero2.webp", "/hero3.webp"];
+
+  // Show content after small delay
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
     return () => clearTimeout(timer);
   }, []);
 
+  // ✅ Change background every 5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <section className="relative h-screen flex items-center justify-start text-white px-6 overflow-hidden">
-      {/* ✅ Background Image */}
-      <Image
-        src="/hero.jpg"
-        alt="Physiotherapy clinic background"
-        fill
-        priority
-        className="absolute inset-0 object-cover -z-10"
-      />
+      {/* ✅ Background Slideshow */}
+      <div className="absolute inset-0 -z-10">
+        <AnimatePresence>
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={images[currentImage]}
+              alt="Physiotherapy clinic background"
+              fill
+              priority
+              className="object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
-      {/* ✅ Subtle Overlay Gradient */}
+      {/* ✅ Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/50 to-transparent -z-10"></div>
 
       {/* ✅ Content */}
@@ -80,7 +106,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* ✅ Floating Animated Elements (Trust Badges) */}
+      {/* ✅ Floating Animated Elements */}
       <motion.div
         className="absolute top-20 right-10 bg-white/20 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/30 shadow-xl"
         initial={{ opacity: 0, y: -20 }}
