@@ -2,6 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+<<<<<<< HEAD
+=======
+
+
+
+@tailwind base;
+@tailwind components;
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
 @tailwind utilities;
 @import "tailwindcss";
 
@@ -23,6 +31,7 @@ body {
   color: rgb(var(--foreground-rgb));
   font-family: 'Libertinus Sans', sans-serif;
 }
+<<<<<<< HEAD
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
@@ -63,3 +72,5 @@ body {
 .custom-date-input::-webkit-calendar-picker-indicator:hover {
   background-color: #147a6c;
 }
+=======
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0

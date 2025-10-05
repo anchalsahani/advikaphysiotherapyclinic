@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+<<<<<<< HEAD
 import { Calendar, Clock, User, Phone, Mail, CheckCircle, AlertCircle, X } from "lucide-react";
 
 export default function BookingPage() {
@@ -120,6 +121,28 @@ export default function BookingPage() {
 
   return (
     <main className="pt-20 bg-gradient-to-br from-[#f8fdfc] via-[#f0f9f7] to-[#e6f7f3] min-h-screen">
+=======
+import { Calendar, Clock, User, Phone, Mail, CheckCircle } from "lucide-react";
+
+export default function BookingPage() {
+  const [showNotif, setShowNotif] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // ✅ Show notification
+    setShowNotif(true);
+
+    // Auto-hide after 4 seconds
+    setTimeout(() => {
+      setShowNotif(false);
+    }, 4000);
+  };
+
+  return (
+    <main className="pt-20 bg-gradient-to-br from-[#f8fdfc] via-[#f0f9f7] to-[#e6f7f3] min-h-screen">
+      {/* Hero Section */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
       <section className="bg-gradient-to-r from-[#d0f6ed] to-[#ffffff] py-20 text-center shadow-inner">
         <motion.h1
           className="text-4xl md:text-6xl font-libertinus text-gray-900 mb-4"
@@ -142,6 +165,7 @@ export default function BookingPage() {
           <span className="font-semibold text-[#0c332d]">
             Advika Physiotherapy Clinic
           </span>
+<<<<<<< HEAD
           . Select your service, choose a time, and we&apos;ll confirm your
           appointment via email.
         </motion.p>
@@ -149,6 +173,17 @@ export default function BookingPage() {
 
       <section className="max-w-4xl mx-auto px-6 md:px-12 py-16">
         <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#ffffff] to-[#ebfef9] border border-teal-100">
+=======
+          . Select your service, choose a time, and we’ll confirm your
+          appointment instantly.
+        </motion.p>
+      </section>
+
+      {/* Booking Form */}
+      <section className="max-w-4xl mx-auto px-6 md:px-12 py-16">
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#ffffff] to-[#ebfef9] border border-teal-100">
+          {/* Header Strip */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
           <div className="bg-[#0c332d] text-white text-center py-6">
             <h2 className="text-2xl font-bold tracking-wide">
               Appointment Details
@@ -157,6 +192,7 @@ export default function BookingPage() {
               Please provide your information below
             </p>
           </div>
+<<<<<<< HEAD
           <div className="relative p-10">
             {error && (
               <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3">
@@ -166,10 +202,18 @@ export default function BookingPage() {
             )}
             
             <form className="space-y-8" onSubmit={handleSubmit}>
+=======
+
+          {/* Form content */}
+          <div className="relative p-10">
+            <form className="space-y-8" onSubmit={handleSubmit}>
+              {/* Service Selection */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2">
                   Select Service <span className="text-red-500">*</span>
                 </label>
+<<<<<<< HEAD
                 <select
                   name="service"
                   value={formData.service}
@@ -185,6 +229,18 @@ export default function BookingPage() {
                 </select>
               </div>
 
+=======
+                <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm">
+                  <option value="">-- Choose a Service --</option>
+                  <option>Post-surgery Recovery</option>
+                  <option>Chronic Pain Relief</option>
+                  <option>Sports Injury Rehab</option>
+                  <option>Physiotherapy Consultation</option>
+                </select>
+              </div>
+
+              {/* Date & Time */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-800 mb-2 flex items-center gap-2">
@@ -193,12 +249,16 @@ export default function BookingPage() {
                   </label>
                   <input
                     type="date"
+<<<<<<< HEAD
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
                     min={minDate}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm text-gray-800 custom-date-input"
                     required
+=======
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
                   />
                 </div>
                 <div>
@@ -206,6 +266,7 @@ export default function BookingPage() {
                     <Clock size={16} /> Preferred Time{" "}
                     <span className="text-red-500">*</span>
                   </label>
+<<<<<<< HEAD
                   <select
                     name="time"
                     value={formData.time}
@@ -223,6 +284,16 @@ export default function BookingPage() {
                 </div>
               </div>
 
+=======
+                  <input
+                    type="time"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
+                  />
+                </div>
+              </div>
+
+              {/* Patient Information */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-800 mb-2 flex items-center gap-2">
@@ -231,12 +302,17 @@ export default function BookingPage() {
                   </label>
                   <input
                     type="text"
+<<<<<<< HEAD
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="John Doe"
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm text-gray-800"
                     required
+=======
+                    placeholder="John Doe"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
                   />
                 </div>
                 <div>
@@ -246,16 +322,22 @@ export default function BookingPage() {
                   </label>
                   <input
                     type="tel"
+<<<<<<< HEAD
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+91 98765 43210"
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm text-gray-800"
                     required
+=======
+                    placeholder="+91 98765 43210"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
                   />
                 </div>
               </div>
 
+<<<<<<< HEAD
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2 flex items-center gap-2">
                   <Mail size={16} /> Email Address{" "}
@@ -272,12 +354,28 @@ export default function BookingPage() {
                 />
               </div>
 
+=======
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-medium text-gray-800 mb-2 flex items-center gap-2">
+                  <Mail size={16} /> Email Address
+                </label>
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
+                />
+              </div>
+
+              {/* Notes */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2">
                   Additional Notes
                 </label>
                 <textarea
                   rows={4}
+<<<<<<< HEAD
                   name="notes"
                   value={formData.notes}
                   onChange={handleChange}
@@ -286,11 +384,20 @@ export default function BookingPage() {
                 ></textarea>
               </div>
 
+=======
+                  placeholder="Any specific concerns or medical history..."
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
+                ></textarea>
+              </div>
+
+              {/* Submit */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               <div className="pt-4">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
+<<<<<<< HEAD
                   disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-[#0c332d] to-[#147a6c] text-white text-lg px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
@@ -305,11 +412,20 @@ export default function BookingPage() {
                 </motion.button>
                 <p className="text-sm text-gray-500 mt-3 text-center">
                   Your booking details will be sent directly to our team. We&apos;ll confirm your appointment via email.
+=======
+                  className="w-full bg-gradient-to-r from-[#0c332d] to-[#147a6c] text-white text-lg px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition"
+                >
+                  Confirm Booking
+                </motion.button>
+                <p className="text-sm text-gray-500 mt-3 text-center">
+                  You will receive a confirmation email/SMS after submission.
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
                 </p>
               </div>
             </form>
           </div>
         </div>
+<<<<<<< HEAD
 
         <div className="mt-12 bg-white rounded-2xl p-6 shadow-lg border border-teal-100">
           <h3 className="text-xl font-semibold text-[#0c332d] mb-4 flex items-center gap-2">
@@ -326,6 +442,11 @@ export default function BookingPage() {
         </div>
       </section>
 
+=======
+      </section>
+
+      {/* ✅ Notification (Bottom Right) */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
       <AnimatePresence>
         {showNotif && (
           <motion.div
@@ -333,18 +454,27 @@ export default function BookingPage() {
             animate={{ opacity: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, y: 50, x: 50 }}
             transition={{ duration: 0.3 }}
+<<<<<<< HEAD
             className="fixed bottom-6 right-6 bg-white border border-teal-200 shadow-xl rounded-lg px-5 py-4 flex items-center gap-3 z-50"
+=======
+            className="fixed bottom-6 right-6 bg-white border border-teal-200 shadow-xl rounded-lg px-5 py-4 flex items-center gap-3"
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
           >
             <CheckCircle className="text-green-600" size={24} />
             <div>
               <p className="font-semibold text-gray-800">Booking Received</p>
               <p className="text-sm text-gray-600">
+<<<<<<< HEAD
                 We&apos;ve successfully received your appointment request. Confirmation email has been sent.
+=======
+                We’ve successfully received your appointment request.
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               </p>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+<<<<<<< HEAD
 
       <AnimatePresence>
         {showSlotBookedPopup && (
@@ -374,6 +504,8 @@ export default function BookingPage() {
           </motion.div>
         )}
       </AnimatePresence>
+=======
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
     </main>
   );
 }

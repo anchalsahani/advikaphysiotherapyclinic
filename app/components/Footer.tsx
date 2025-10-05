@@ -1,5 +1,6 @@
 "use client";
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+<<<<<<< HEAD
 import { useState } from "react";
 
 export default function Footer() {
@@ -51,10 +52,18 @@ export default function Footer() {
     }
   };
 
+=======
+
+export default function Footer() {
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
   return (
     <footer className="bg-[#1e3a34] text-gray-300 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
         
+<<<<<<< HEAD
+=======
+        {/* Logo + Mission + Map */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
         <div>
           <h2 className="text-2xl font-bold text-white mb-3">Advika Clinic</h2>
           <p className="text-sm text-gray-400 mb-4 leading-relaxed">
@@ -73,7 +82,11 @@ export default function Footer() {
           </div>
         </div>
 
+<<<<<<< HEAD
         
+=======
+        {/* Quick Links */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
@@ -81,7 +94,11 @@ export default function Footer() {
               { name: "Home", href: "/" },
               { name: "About Us", href: "/about" },
               { name: "Our Services", href: "/services" },
+<<<<<<< HEAD
               { name: "Meet the Team", href: "/team" },
+=======
+              // { name: "Meet the Team", href: "/team" },
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               { name: "Patient Testimonials", href: "/testimonials" },
               { name: "Book Appointment", href: "/booking" },
               { name: "Contact Us", href: "/contact" },
@@ -98,6 +115,10 @@ export default function Footer() {
           </ul>
         </div>
 
+<<<<<<< HEAD
+=======
+        {/* Contact Info */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
           <ul className="space-y-3 text-sm">
@@ -122,7 +143,11 @@ export default function Footer() {
             </li>
           </ul>
 
+<<<<<<< HEAD
           
+=======
+          {/* Socials */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
           <div className="flex gap-4 mt-5">
             <a href="" aria-label="Facebook" className="hover:text-white">
               <Facebook className="w-5 h-5" />
@@ -133,6 +158,7 @@ export default function Footer() {
             <a href="https://www.linkedin.com/in/dr-swati-sharma-pt-a597a81b1/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn" className="hover:text-white">
               <Linkedin className="w-5 h-5" />
             </a>
+<<<<<<< HEAD
             
             <button onClick={openWhatsApp} aria-label="WhatsApp" className="hover:text-white">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -143,17 +169,28 @@ export default function Footer() {
         </div>
 
        
+=======
+          </div>
+        </div>
+
+        {/* Newsletter */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">Stay Informed</h3>
           <p className="text-sm text-gray-400 mb-4">
             Subscribe for clinic updates, new treatments, and health tips.
           </p>
+<<<<<<< HEAD
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-3">
+=======
+          <form className="flex flex-col sm:flex-row items-center gap-3">
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
             <input
               type="email"
               placeholder="Your email address"
               className="w-full px-4 py-2 rounded-md bg-gray-800 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#34d399]"
               required
+<<<<<<< HEAD
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={status === "loading"}
@@ -184,6 +221,20 @@ export default function Footer() {
       </div>
 
       
+=======
+            />
+            <button
+              type="submit"
+              className="px-5 py-2 rounded-md bg-[#34d399] text-gray-900 font-medium hover:bg-[#2bb983] transition"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
       <div className="mt-12 border-t border-gray-700 pt-6 text-center text-xs text-gray-500">
         <p>
           © {new Date().getFullYear()} Advika Physiotherapy Clinic. All rights reserved. |{" "}
@@ -193,4 +244,8 @@ export default function Footer() {
       </div>
     </footer>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
