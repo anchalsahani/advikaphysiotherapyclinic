@@ -20,16 +20,11 @@
     "eslint-config-next": "15.4.5",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.541.0",
-<<<<<<< HEAD
     "mongodb": "^6.19.0",
     "mongoose": "^8.18.0",
     "next": "15.4.5",
     "nodemailer": "^7.0.5",
-=======
-    "next": "15.4.5",
-    "nodemailer": "^7.0.5",
     "openai": "^5.12.1",
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
     "postcss": "8.5.6",
     "react": "19.1.1",
     "react-dom": "19.1.1",

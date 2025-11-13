@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-<<<<<<< HEAD
 import { Calendar, Clock, User, Phone, Mail, CheckCircle, AlertCircle, X } from "lucide-react";
 
 export default function BookingPage() {
@@ -16,16 +15,16 @@ export default function BookingPage() {
     name: "",
     phone: "",
     email: "",
-    notes: ""
+    notes: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
-    
+
     if (error) setError("");
   };
 
@@ -34,31 +33,27 @@ export default function BookingPage() {
     setIsSubmitting(true);
     setError("");
 
-    // Client-side validation for past dates/times using IST
-    const nowIST = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"}));
+    const nowIST = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
     const selectedDateTime = new Date(`${formData.date}T${formData.time}:00`);
-    
-    // Adjust selectedDateTime to IST for accurate comparison
-    const selectedDateTimeIST = new Date(selectedDateTime.toLocaleString("en-US", {timeZone: "Asia/Kolkata"}));
-    
+    const selectedDateTimeIST = new Date(selectedDateTime.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+
     if (selectedDateTimeIST < nowIST) {
-      setError("You cannot book an appointment for a time that has already passed. Please choose a future date and time.");
+      setError("You cannot book an appointment for a past time. Please choose a future date and time.");
       setIsSubmitting(false);
       return;
     }
-  
-    if (!formData.service || !formData.date || !formData.time || 
-        !formData.name || !formData.phone || !formData.email) {
+
+    if (!formData.service || !formData.date || !formData.time || !formData.name || !formData.phone || !formData.email) {
       setError("Please fill in all required fields");
       setIsSubmitting(false);
       return;
     }
 
     try {
-      const response = await fetch('/api/booking', {
-        method: 'POST',
+      const response = await fetch("/api/booking", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -74,21 +69,16 @@ export default function BookingPage() {
           name: "",
           phone: "",
           email: "",
-          notes: ""
+          notes: "",
         });
-        setTimeout(() => {
-          setShowNotif(false);
-        }, 4000);
+        setTimeout(() => setShowNotif(false), 4000);
       } else {
-        if (response.status === 409) {
-          setShowSlotBookedPopup(true);
-        } else {
-          setError(result.error || "Failed to book appointment. Please try again.");
-        }
+        if (response.status === 409) setShowSlotBookedPopup(true);
+        else setError(result.error || "Failed to book appointment. Please try again.");
       }
     } catch (error) {
-      console.error('Error:', error);
-      setError("Network error. Please check your connection and try again.");
+      console.error("Error:", error);
+      setError("Network error. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -96,17 +86,14 @@ export default function BookingPage() {
 
   const generateTimeSlots = () => {
     const slots = [];
-    const nowIST = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"}));
-    const todayIST = nowIST.toISOString().split('T')[0];
+    const nowIST = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+    const todayIST = nowIST.toISOString().split("T")[0];
 
     for (let hour = 9; hour <= 17; hour++) {
       for (let minute = 0; minute < 60; minute += 30) {
-        const timeString = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+        const timeString = `${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`;
         const slotDateTime = new Date(`${formData.date}T${timeString}:00`);
-        
-        // Adjust selectedDateTime to IST for accurate comparison
-        const slotDateTimeIST = new Date(slotDateTime.toLocaleString("en-US", {timeZone: "Asia/Kolkata"}));
-        
+        const slotDateTimeIST = new Date(slotDateTime.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
         const isPast = formData.date === todayIST && slotDateTimeIST < nowIST;
         slots.push({ time: timeString, disabled: isPast });
       }
@@ -115,34 +102,12 @@ export default function BookingPage() {
   };
 
   const todayIST = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
-  const minDate = todayIST.getFullYear() + '-' + String(todayIST.getMonth() + 1).padStart(2, '0') + '-' + String(todayIST.getDate()).padStart(2, '0');
-  
+  const minDate = `${todayIST.getFullYear()}-${String(todayIST.getMonth() + 1).padStart(2, "0")}-${String(todayIST.getDate()).padStart(2, "0")}`;
   const timeSlots = generateTimeSlots();
 
   return (
     <main className="pt-20 bg-gradient-to-br from-[#f8fdfc] via-[#f0f9f7] to-[#e6f7f3] min-h-screen">
-=======
-import { Calendar, Clock, User, Phone, Mail, CheckCircle } from "lucide-react";
-
-export default function BookingPage() {
-  const [showNotif, setShowNotif] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // ✅ Show notification
-    setShowNotif(true);
-
-    // Auto-hide after 4 seconds
-    setTimeout(() => {
-      setShowNotif(false);
-    }, 4000);
-  };
-
-  return (
-    <main className="pt-20 bg-gradient-to-br from-[#f8fdfc] via-[#f0f9f7] to-[#e6f7f3] min-h-screen">
       {/* Hero Section */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
       <section className="bg-gradient-to-r from-[#d0f6ed] to-[#ffffff] py-20 text-center shadow-inner">
         <motion.h1
           className="text-4xl md:text-6xl font-libertinus text-gray-900 mb-4"
@@ -155,44 +120,22 @@ export default function BookingPage() {
         <motion.p
           className="text-gray-700 max-w-2xl mx-auto text-lg"
           initial={{ opacity: 0, y: 20 }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            transition: { duration: 1, delay: 0.2 },
-          }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.2 } }}
         >
           Schedule your consultation at{" "}
-          <span className="font-semibold text-[#0c332d]">
-            Advika Physiotherapy Clinic
-          </span>
-<<<<<<< HEAD
-          . Select your service, choose a time, and we&apos;ll confirm your
-          appointment via email.
-        </motion.p>
-      </section>
-
-      <section className="max-w-4xl mx-auto px-6 md:px-12 py-16">
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#ffffff] to-[#ebfef9] border border-teal-100">
-=======
-          . Select your service, choose a time, and we’ll confirm your
-          appointment instantly.
+          <span className="font-semibold text-[#0c332d]">Advika Physiotherapy Clinic</span>. Select your service, choose
+          a time, and we&apos;ll confirm your appointment via email.
         </motion.p>
       </section>
 
       {/* Booking Form */}
       <section className="max-w-4xl mx-auto px-6 md:px-12 py-16">
         <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#ffffff] to-[#ebfef9] border border-teal-100">
-          {/* Header Strip */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
           <div className="bg-[#0c332d] text-white text-center py-6">
-            <h2 className="text-2xl font-bold tracking-wide">
-              Appointment Details
-            </h2>
-            <p className="text-sm text-gray-200">
-              Please provide your information below
-            </p>
+            <h2 className="text-2xl font-bold tracking-wide">Appointment Details</h2>
+            <p className="text-sm text-gray-200">Please provide your information below</p>
           </div>
-<<<<<<< HEAD
+
           <div className="relative p-10">
             {error && (
               <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3">
@@ -200,25 +143,17 @@ export default function BookingPage() {
                 <p className="text-red-700">{error}</p>
               </div>
             )}
-            
-            <form className="space-y-8" onSubmit={handleSubmit}>
-=======
 
-          {/* Form content */}
-          <div className="relative p-10">
             <form className="space-y-8" onSubmit={handleSubmit}>
-              {/* Service Selection */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2">
                   Select Service <span className="text-red-500">*</span>
                 </label>
-<<<<<<< HEAD
                 <select
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm text-gray-800"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 shadow-sm"
                   required
                 >
                   <option value="">-- Choose a Service --</option>
@@ -229,119 +164,76 @@ export default function BookingPage() {
                 </select>
               </div>
 
-=======
-                <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm">
-                  <option value="">-- Choose a Service --</option>
-                  <option>Post-surgery Recovery</option>
-                  <option>Chronic Pain Relief</option>
-                  <option>Sports Injury Rehab</option>
-                  <option>Physiotherapy Consultation</option>
-                </select>
-              </div>
-
-              {/* Date & Time */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-800 mb-2 flex items-center gap-2">
-                    <Calendar size={16} /> Preferred Date{" "}
-                    <span className="text-red-500">*</span>
+                    <Calendar size={16} /> Preferred Date <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="date"
-<<<<<<< HEAD
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
                     min={minDate}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm text-gray-800 custom-date-input"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 shadow-sm custom-date-input"
                     required
-=======
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-800 mb-2 flex items-center gap-2">
-                    <Clock size={16} /> Preferred Time{" "}
-                    <span className="text-red-500">*</span>
+                    <Clock size={16} /> Preferred Time <span className="text-red-500">*</span>
                   </label>
-<<<<<<< HEAD
                   <select
                     name="time"
                     value={formData.time}
                     onChange={handleChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm text-gray-800"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 shadow-sm"
                     required
                   >
                     <option value="">-- Select a Time --</option>
                     {timeSlots.map((slot) => (
                       <option key={slot.time} value={slot.time} disabled={slot.disabled}>
-                        {slot.time} {slot.disabled && '(Past)'}
+                        {slot.time} {slot.disabled && "(Past)"}
                       </option>
                     ))}
                   </select>
                 </div>
               </div>
 
-=======
-                  <input
-                    type="time"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
-                  />
-                </div>
-              </div>
-
-              {/* Patient Information */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-800 mb-2 flex items-center gap-2">
-                    <User size={16} /> Full Name{" "}
-                    <span className="text-red-500">*</span>
+                    <User size={16} /> Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
-<<<<<<< HEAD
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm text-gray-800"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 shadow-sm"
                     required
-=======
-                    placeholder="John Doe"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-800 mb-2 flex items-center gap-2">
-                    <Phone size={16} /> Phone Number{" "}
-                    <span className="text-red-500">*</span>
+                    <Phone size={16} /> Phone Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
-<<<<<<< HEAD
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+91 98765 43210"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm text-gray-800"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 shadow-sm"
                     required
-=======
-                    placeholder="+91 98765 43210"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
                   />
                 </div>
               </div>
 
-<<<<<<< HEAD
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2 flex items-center gap-2">
-                  <Mail size={16} /> Email Address{" "}
-                  <span className="text-red-500">*</span>
+                  <Mail size={16} /> Email Address <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -349,83 +241,40 @@ export default function BookingPage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="you@example.com"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm text-gray-800"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 shadow-sm"
                   required
                 />
               </div>
 
-=======
-              {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-800 mb-2 flex items-center gap-2">
-                  <Mail size={16} /> Email Address
-                </label>
-                <input
-                  type="email"
-                  placeholder="you@example.com"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
-                />
-              </div>
-
-              {/* Notes */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
-              <div>
-                <label className="block text-sm font-medium text-gray-800 mb-2">
-                  Additional Notes
-                </label>
+                <label className="block text-sm font-medium text-gray-800 mb-2">Additional Notes</label>
                 <textarea
                   rows={4}
-<<<<<<< HEAD
                   name="notes"
                   value={formData.notes}
                   onChange={handleChange}
                   placeholder="Any specific concerns or medical history..."
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm text-gray-800"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 shadow-sm"
                 ></textarea>
               </div>
 
-=======
-                  placeholder="Any specific concerns or medical history..."
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-sm"
-                ></textarea>
-              </div>
-
-              {/* Submit */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
               <div className="pt-4">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-<<<<<<< HEAD
                   disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-[#0c332d] to-[#147a6c] text-white text-lg px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? (
-                    'Processing...'
-                  ) : (
-                    <>
-                      <CheckCircle size={20} />
-                      Book Appointment
-                    </>
-                  )}
+                  {isSubmitting ? "Processing..." : (<><CheckCircle size={20} /> Book Appointment</>)}
                 </motion.button>
                 <p className="text-sm text-gray-500 mt-3 text-center">
-                  Your booking details will be sent directly to our team. We&apos;ll confirm your appointment via email.
-=======
-                  className="w-full bg-gradient-to-r from-[#0c332d] to-[#147a6c] text-white text-lg px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition"
-                >
-                  Confirm Booking
-                </motion.button>
-                <p className="text-sm text-gray-500 mt-3 text-center">
-                  You will receive a confirmation email/SMS after submission.
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
+                  Your booking details will be sent to our team. We&apos;ll confirm via email.
                 </p>
               </div>
             </form>
           </div>
         </div>
-<<<<<<< HEAD
 
         <div className="mt-12 bg-white rounded-2xl p-6 shadow-lg border border-teal-100">
           <h3 className="text-xl font-semibold text-[#0c332d] mb-4 flex items-center gap-2">
@@ -434,19 +283,15 @@ export default function BookingPage() {
           </h3>
           <ol className="list-decimal pl-5 space-y-2 text-gray-700">
             <li>Fill out the form above with your appointment details</li>
-            <li>Click the &quot;Book Appointment&quot; button</li>
-            <li>Your booking details will be sent directly to our team</li>
-            <li>We&apos;ll contact you shortly to confirm your appointment via email</li>
-            <li>If the selected time slot is already booked, we&apos;ll suggest alternative times</li>
+            <li>Click the "Book Appointment" button</li>
+            <li>Your details are sent to our team instantly</li>
+            <li>We&apos;ll contact you shortly to confirm via email</li>
+            <li>If the slot is booked, we&apos;ll suggest alternate times</li>
           </ol>
         </div>
       </section>
 
-=======
-      </section>
-
-      {/* ✅ Notification (Bottom Right) */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
+      {/* ✅ Notifications */}
       <AnimatePresence>
         {showNotif && (
           <motion.div
@@ -454,27 +299,18 @@ export default function BookingPage() {
             animate={{ opacity: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, y: 50, x: 50 }}
             transition={{ duration: 0.3 }}
-<<<<<<< HEAD
             className="fixed bottom-6 right-6 bg-white border border-teal-200 shadow-xl rounded-lg px-5 py-4 flex items-center gap-3 z-50"
-=======
-            className="fixed bottom-6 right-6 bg-white border border-teal-200 shadow-xl rounded-lg px-5 py-4 flex items-center gap-3"
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
           >
             <CheckCircle className="text-green-600" size={24} />
             <div>
               <p className="font-semibold text-gray-800">Booking Received</p>
               <p className="text-sm text-gray-600">
-<<<<<<< HEAD
-                We&apos;ve successfully received your appointment request. Confirmation email has been sent.
-=======
-                We’ve successfully received your appointment request.
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
+                We&apos;ve successfully received your appointment request. A confirmation email has been sent.
               </p>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-<<<<<<< HEAD
 
       <AnimatePresence>
         {showSlotBookedPopup && (
@@ -489,9 +325,7 @@ export default function BookingPage() {
               <AlertCircle className="flex-shrink-0 mt-0.5" size={20} />
               <div className="flex-grow">
                 <h3 className="font-bold text-base">Booking Conflict</h3>
-                <p className="text-sm mt-1">
-                  The selected slot is already booked. Please choose another date or time.
-                </p>
+                <p className="text-sm mt-1">This slot is already booked. Please choose another time.</p>
               </div>
               <button
                 onClick={() => setShowSlotBookedPopup(false)}
@@ -504,8 +338,6 @@ export default function BookingPage() {
           </motion.div>
         )}
       </AnimatePresence>
-=======
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
     </main>
   );
 }

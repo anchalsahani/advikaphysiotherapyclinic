@@ -1,55 +1,23 @@
 "use client";
 
 import { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { motion } from "framer-motion";
-import Typewriter from "typewriter-effect";
-import Image from "next/image";
-import { useRouter } from "next/navigation"; 
-
-export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
-  const router = useRouter(); 
-
-=======
 import { motion, AnimatePresence } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+  const router = useRouter();
 
-  // ✅ Array of background images
   const images = ["/hero.jpg", "/hero2.webp", "/hero3.webp"];
 
-  // Show content after small delay
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
     return () => clearTimeout(timer);
   }, []);
 
-<<<<<<< HEAD
-  const handleBookAppointment = () => {
-    router.push("/booking");
-  };
-
-  return (
-    <section className="relative h-screen flex items-center justify-start text-white px-6 overflow-hidden">
-      <Image
-        src="/hero.jpg"
-        alt="Physiotherapy clinic background"
-        fill
-        priority
-        className="absolute inset-0 object-cover -z-10"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/50 to-transparent -z-10"></div>
-
-      <div className="relative z-10 text-left max-w-4xl pl-6 md:pl-20 -mt-16">
-    
-=======
-  // ✅ Change background every 5s
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -57,9 +25,13 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const handleBookAppointment = () => {
+    router.push("/booking");
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-start text-white px-6 overflow-hidden">
-      {/* ✅ Background Slideshow */}
+      {/* Background Slideshow */}
       <div className="absolute inset-0 -z-10">
         <AnimatePresence>
           <motion.div
@@ -81,13 +53,11 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      {/* ✅ Overlay */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/50 to-transparent -z-10"></div>
 
-      {/* ✅ Content */}
+      {/* Content */}
       <div className="relative z-10 text-left max-w-4xl pl-6 md:pl-20 -mt-16">
-        {/* Heading */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
@@ -104,11 +74,7 @@ export default function Hero() {
             </span>
           </h1>
         </motion.div>
-<<<<<<< HEAD
-=======
 
-        {/* ✅ Typewriter Tagline */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
         <motion.div
           className="mt-4 text-lg md:text-2xl text-gray-100 drop-shadow-md"
           initial={{ opacity: 0, y: 20 }}
@@ -129,48 +95,31 @@ export default function Hero() {
           />
         </motion.div>
 
-<<<<<<< HEAD
-   
-=======
-        {/* ✅ CTA Button */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
         >
-<<<<<<< HEAD
-          <button 
-            onClick={handleBookAppointment} 
+          <button
+            onClick={handleBookAppointment}
             className="mt-8 bg-gradient-to-r from-[#16a34a] to-[#0c332d] text-white px-10 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl hover:scale-105 transition transform duration-300"
           >
-=======
-          <button className="mt-8 bg-gradient-to-r from-[#16a34a] to-[#0c332d] text-white px-10 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl hover:scale-105 transition transform duration-300">
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
             Book Appointment
           </button>
         </motion.div>
       </div>
 
-<<<<<<< HEAD
-   
-=======
-      {/* ✅ Floating Animated Elements */}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
+      {/* Floating Info Box */}
       <motion.div
         className="absolute top-20 right-10 bg-white/20 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/30 shadow-xl"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut", delay: 1 }}
       >
-        <p className="text-sm md:text-base text-gray-800 font-semibold ">
+        <p className="text-sm md:text-base text-gray-800 font-semibold">
           🩺 Trusted by 5,000+ Patients
         </p>
       </motion.div>
     </section>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b0ec4a38839502217801f09da946fe20b9eb8bd0
